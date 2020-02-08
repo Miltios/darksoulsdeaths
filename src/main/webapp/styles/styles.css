@@ -1,0 +1,246 @@
+/*******palette:*******
+dark brown: #443300
+medium brown: #887755
+light brown: #A1997F
+bright yellow: #FFEE00
+dark yellow: #CCBB00
+dark gray: #111111
+medium gray: #666666
+light gray: #CCCCCC
+very light gray: #DDDDDD
+***********************/
+
+/* load custom font(s) */
+@import url(http://fonts.googleapis.com/css?family=Marcellus+SC);
+
+html
+{
+ background-color:black;
+ color:#DDDDDD;
+ font-size:17px;
+ background-image:url(images/BG_ornstein_fade.jpg);
+ background-repeat:no-repeat;
+ background-position:center 0%;
+}
+html .text-large
+{
+ font-size:20px;
+}
+html a
+{
+ text-decoration:none;
+}
+body
+{
+ margin:0;
+}
+.wrapper
+{
+ width:1000px;
+ margin:0 auto;
+}
+.content
+{
+ width:956px; /* 1000px - (40px padding + 4px border) */
+ background-color:black;
+ background-image:url('images/blackleather.jpg');
+ border:2px solid black;
+ border-radius:10px;
+ padding:20px;
+ margin-bottom:50px;
+ float:left;
+}
+.content strong
+{
+ font-family:'Marcellus SC', serif;
+ text-transform: uppercase;
+}
+.container a
+{
+ color:#FFEE00;
+}
+.container a:hover
+{
+ color:#CCBB00;
+}
+.container a.spoiler-link:hover::after
+{
+ content:"Warning: This link points to an external page which may contain spoilers.";
+ position:absolute;
+ width:160px;
+ background-color:lightgrey;
+ border:2px inset black;
+ border-radius:5px;
+ padding:5px;
+ font-size:10pt;
+ font-family:arial, sans-serif;
+ color:black;
+}
+table
+{
+    border-collapse:collapse;
+    border-color:#887755;
+}
+table td
+{
+    border-color:#887755;
+    border-style:solid;
+    border-width:1px;
+}
+.header
+{
+    /*margin-top:20px;*/
+    height:170px;
+    width:100%;
+    background-image:url(images/header_blank.png);
+    background-repeat:no-repeat;
+    background-position:center;
+    background-color:rgba(0,0,0,.7);
+    box-shadow:0 0 20px 15px rgba(0,0,0,0.7)
+}
+.navbar
+{
+ margin-left:auto;
+ margin-right:auto;
+ font-family:'Marcellus SC', serif;
+ font-size:18px;
+}
+.navbar ul
+{
+    margin:3px auto;
+    padding:6px;
+    text-align:center;
+    background-image:url(images/gilt_border.jpg);
+    background-position:center;
+    background-size:contain;
+    background-repeat:no-repeat;
+}
+.navbar li
+{
+ display:inline;
+ list-style-type:none;
+ padding:0px 10px;
+ margin:0;
+}
+form select, form input, form label, form p, form div
+{
+ float:left;
+}
+form select, form input, form p
+{
+ clear:left;
+}
+h1, h2
+{
+ font-family:"Marcellus SC", Serif;
+ font-weight:normal;
+}
+
+/* home page save file submissions */
+#div-loading img, #div-loading h2
+{
+ margin: 0 auto;
+ display:block;
+ text-align:center;
+}
+#div-loading img
+{
+ border:4px solid;
+ border-color:#888 #222 #222 #888;
+}
+
+/* results table containing all characters in a save file */
+#table-results
+{
+ margin:30px auto 10px;
+ border-width:4px;
+ border-style:double;
+ padding:0px;
+}
+#table-results td
+{
+ padding:5px;
+}
+#table-results td:nth-child(1)
+{
+    width:250px;
+}
+#table-results td:nth-child(2)
+{
+    width:150px;
+}
+#table-results td:nth-child(3) input
+{
+    width:155px;
+}
+#table-results .tr-char
+{
+ display:none;
+}
+
+/* individual character form */
+#table-char
+{
+ margin:30px auto 10px;
+ border-width:4px;
+ border-style:double;
+ padding:0;
+}
+#table-char td
+{
+ padding:5px;
+}
+.extra-info
+{
+ border:1px solid #887755;
+ border-radius:5px;
+ padding:10px;
+ margin:10px;
+ width:916px;
+}
+
+/* stats page */
+.span-stat
+{
+ color:#CCBB00;
+}
+h2.your-stats, h2.all-stats, h2.nochar-stats
+{
+ margin-bottom:-30;
+ margin-top:30px;
+}
+h2.nochar-stats
+{
+    font-size:25px;
+    font-weight:bold;
+    margin-left:145px;
+    margin-bottom:-50px;
+}
+/*.you-are-here
+{
+ display:none;
+ height:0px;
+ position:absolute;
+ z-index:1;
+}
+.YAH-marker
+{
+ height:300px;
+ width:1px;
+ background-color:#443300;
+ position:relative;
+}*/
+
+/* appends a copyright disclaimer to every page */
+.content::after
+{
+    content:"Dark Souls is © NAMCO BANDAI Games Inc. and FromSoftware, Inc.  This site is in no way affiliated with or endorsed by either company.";
+    font-size:11px;
+    color:gray;
+    position:relative;
+    bottom:0;
+    left:0;
+    width:100%;
+    height:30px;
+    text-align:center;
+}

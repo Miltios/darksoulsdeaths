@@ -2,7 +2,7 @@ package com.darksoulsdeaths;
 
 public class Utilities
 {
-    private static boolean debug = false; //TODO:move this to a config file or something and provide different levels
+    private static boolean debug = true; //TODO:move this to a config file or something and provide different levels
 
     private Utilities(){}
 
