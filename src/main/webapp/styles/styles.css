@@ -18,7 +18,7 @@ html
  background-color:black;
  color:#DDDDDD;
  font-size:17px;
- background-image:url(images/BG_ornstein_fade.jpg);
+ background-image:url(../images/BG_ornstein_fade.jpg);
  background-repeat:no-repeat;
  background-position:center 0%;
 }
@@ -43,7 +43,7 @@ body
 {
  width:956px; /* 1000px - (40px padding + 4px border) */
  background-color:black;
- background-image:url('images/blackleather.jpg');
+ background-image:url('../images/blackleather.jpg');
  border:2px solid black;
  border-radius:10px;
  padding:20px;
@@ -92,7 +92,7 @@ table td
     /*margin-top:20px;*/
     height:170px;
     width:100%;
-    background-image:url(images/header_blank.png);
+    background-image:url(../images/header_blank.png);
     background-repeat:no-repeat;
     background-position:center;
     background-color:rgba(0,0,0,.7);
@@ -110,7 +110,7 @@ table td
     margin:3px auto;
     padding:6px;
     text-align:center;
-    background-image:url(images/gilt_border.jpg);
+    background-image:url(../images/gilt_border.jpg);
     background-position:center;
     background-size:contain;
     background-repeat:no-repeat;
@@ -234,7 +234,7 @@ h2.nochar-stats
 /* appends a copyright disclaimer to every page */
 .content::after
 {
-    content:"Dark Souls is © NAMCO BANDAI Games Inc. and FromSoftware, Inc.  This site is in no way affiliated with or endorsed by either company.";
+    content:"Dark Souls is \a9  NAMCO BANDAI Games Inc. and FromSoftware, Inc.  This site is in no way affiliated with or endorsed by either company.";
     font-size:11px;
     color:gray;
     position:relative;
