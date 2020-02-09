@@ -36,7 +36,7 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>stats</servlet-name>
-        <url-pattern>/stats.jsp</url-pattern>
+        <url-pattern>/stats</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>results</servlet-name>

@@ -75,10 +75,10 @@
     <div class="container">
         <div class="navbar">
         <ul>
-            <li><a href="../index.html">Home</a></li>
-            <li><a href="stats.py">Stats</a></li>
-            <li><a href="../about.html">About</a></li>
-            <li><a href="../FAQ.html">FAQ</a></li>
+            <li><a href="index">Home</a></li>
+            <li><a href="stats">Stats</a></li>
+            <li><a href="about">About</a></li>
+            <li><a href="FAQ">FAQ</a></li>
         </ul>
         </div>
         <div class="content">
