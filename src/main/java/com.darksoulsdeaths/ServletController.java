@@ -1,5 +1,10 @@
 package com.darksoulsdeaths;
 
+import org.apache.commons.fileupload.FileItem;
+import org.apache.commons.fileupload.FileItemFactory;
+import org.apache.commons.fileupload.disk.DiskFileItemFactory;
+import org.apache.commons.fileupload.servlet.ServletFileUpload;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -7,6 +12,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @WebServlet("/request/*")
 public class ServletController extends HttpServlet
@@ -53,6 +61,34 @@ public class ServletController extends HttpServlet
             String action = request.getRequestURI().toLowerCase().split("/request/")[1];
             switch (action)
             {
+                case "processfile":
+                    //FileItemFactory factory = new DiskFileItemFactory();
+                    //ServletFileUpload upload = new ServletFileUpload(factory);
+                    Map<String,Integer> deathsMap;
+                    try
+                    {
+                        //List<FileItem> fileItems = upload.parseRequest(request);
+                        //FileItem file = fileItems.get(0); //TODO:safety!
+                        //deathsMap =  FileController.getDeathsFromFile(file);
+
+                        //TODO:this is dummy data
+                        deathsMap =  new HashMap<>();
+                        deathsMap.put("Gordon", 123);
+                        deathsMap.put("Sandy", 456);
+
+                        request.setAttribute("fileData", deathsMap);
+                        request.getRequestDispatcher("/results.jsp").forward(request, response);
+                    }
+                    catch (Exception e)
+                    {
+                        e.printStackTrace();
+                        writer.println("An unexpected error occurred.");
+                    }
+                    break;
+                case "submit":
+                    //TODO
+                    request.getRequestDispatcher("/submit.jsp").forward(request, response);
+                    break;
                 case "resetlimiter":
                     response.setContentType("application/JSON");
                     try
