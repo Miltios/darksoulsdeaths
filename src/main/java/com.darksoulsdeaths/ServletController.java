@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -62,19 +61,15 @@ public class ServletController extends HttpServlet
             switch (action)
             {
                 case "processfile":
-                    //FileItemFactory factory = new DiskFileItemFactory();
-                    //ServletFileUpload upload = new ServletFileUpload(factory);
+                    FileItemFactory factory = new DiskFileItemFactory();
+                    ServletFileUpload upload = new ServletFileUpload(factory);
                     Map<String,Integer> deathsMap;
                     try
                     {
-                        //List<FileItem> fileItems = upload.parseRequest(request);
-                        //FileItem file = fileItems.get(0); //TODO:safety!
-                        //deathsMap =  FileController.getDeathsFromFile(file);
+                        List<FileItem> fileItems = upload.parseRequest(request);
+                        FileItem file = fileItems.get(0); //TODO:safety!
+                        deathsMap =  FileController.getDeathsFromFile(file);
 
-                        //TODO:this is dummy data
-                        deathsMap =  new HashMap<>();
-                        deathsMap.put("Gordon", 123);
-                        deathsMap.put("Sandy", 456);
 
                         request.setAttribute("fileData", deathsMap);
                         request.getRequestDispatcher("/results.jsp").forward(request, response);
