@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -81,8 +82,24 @@ public class ServletController extends HttpServlet
                     }
                     break;
                 case "submit":
-                    //TODO
-                    request.getRequestDispatcher("/submit.jsp").forward(request, response);
+                    Map<String,Object> charData;
+                    try
+                    {
+                        charData = new HashMap<>();
+                        charData.put("name", request.getParameter("name"));
+                        charData.put("deaths", request.getParameter("deaths"));
+                        request.setAttribute("charData", charData);
+                        request.getRequestDispatcher("/submit.jsp").forward(request, response);
+                    }
+                    catch (Exception e)
+                    {
+                        e.printStackTrace();
+                        writer.println("An unexpected error occurred.");
+                    }
+                    break;
+                case "stats":
+                    //TODO:take the submitted form data, put it in the DB, and forward user to the regular /stats page (we are currently in /request/stats)
+                    request.getRequestDispatcher("/stats.jsp").forward(request, response);
                     break;
                 case "resetlimiter":
                     response.setContentType("application/JSON");

@@ -43,7 +43,7 @@
                     <tr id="char<%=i%>" class="tr-char" style="display:block">
                         <td>Character: <span id="span-char<%=i%>"><%=name%></span></td>
                         <td>Total deaths: <span id="span-deaths<%=i%>"><%=deaths%></span></td>
-                        <td><form id="saveFile" method="POST" action="request/submit" target="_blank">
+                        <td><form id="saveFile" method="POST" action="submit" target="_blank">
                             <input type="hidden" name="name" value="<%=name%>" />
                             <input type="hidden" name="deaths" value="<%=deaths%>" />
                             <input type="submit" id="submit" value="<%=buttonText%>" />
