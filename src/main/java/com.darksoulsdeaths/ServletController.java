@@ -39,6 +39,11 @@ public class ServletController extends HttpServlet
                     response.setContentType("text/html");
                     writer.println("pong!");
                     break;
+                case "getdeathandadppaverages":
+                    //TODO:just a debug for DB connection
+                    response.setContentType("text/html");
+                    writer.println(DataManager.getDeathAndADPPAverages());
+                    break;
                 default:
                     response.setContentType("text/html");
                     writer.println("ERROR: Unable to process request: " + action);
