@@ -4,6 +4,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
+
+//TODO: redirect system.out.println to someplace useful
 
 public class DataManager
 {
@@ -14,9 +18,9 @@ public class DataManager
     {
         //
     }
-    public static String getDeathAndADPPAverages()
+    public static Map<String,Integer> getDeathAndADPPAverages()
     {
-        StringBuilder result = new StringBuilder();
+        Map<String,Integer> result = new HashMap<>();
 
         Connection c = ConnectionManager.getConnection();
         try
@@ -26,19 +30,34 @@ public class DataManager
             if(statement.execute())
             {
                 ResultSet rs = statement.getResultSet();
-                while(rs.next()) //TODO: this is not in a useful format
+                if(rs.last())
                 {
-                    result.append("Deaths: ").append(rs.getInt("round(avg(deaths))"));
-                    result.append("ADPP: ").append(rs.getInt("round(avg(adpp))"));
+                    int rowCount = rs.getRow();
+                    if(rowCount == 0)
+                    {
+                        System.out.println("Found no rows for getDeathAndADPPAverages!");
+                        result.put("deaths", 0);
+                        result.put("adpp", 0);
+                        return result;
+                    }
+                    else if(rowCount > 1)
+                    {
+                        System.out.println("Found multiple rows for getDeathAndADPPAverages!  Returning only the first row...");
+                    }
+                    rs.beforeFirst();
+                }
+                if(rs.next())
+                {
+                    result.put("deaths", rs.getInt("round(avg(deaths))"));
+                    result.put("adpp", rs.getInt("round(avg(adpp))"));
                 }
             }
         }
         catch(SQLException e)
         {
-            //TODO
             System.out.println("Failed to get death and ADPP averages!");
             e.printStackTrace();
         }
-        return result.toString();
+        return result;
     }
 }

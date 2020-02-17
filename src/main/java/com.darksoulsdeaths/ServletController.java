@@ -41,8 +41,8 @@ public class ServletController extends HttpServlet
                     break;
                 case "getdeathandadppaverages":
                     //TODO:just a debug for DB connection
-                    response.setContentType("text/html");
-                    writer.println(DataManager.getDeathAndADPPAverages());
+                    response.setContentType("application/JSON");
+                    writer.println(Utilities.mapToJson(DataManager.getDeathAndADPPAverages()));
                     break;
                 default:
                     response.setContentType("text/html");
