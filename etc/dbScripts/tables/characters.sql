@@ -1,0 +1,14 @@
+CREATE TABLE `characters` (
+  `playerid` varchar(36) NOT NULL,
+  `charactername` varchar(13) NOT NULL,
+  `deaths` int(11) DEFAULT NULL,
+  `playthrough` int(11) DEFAULT NULL,
+  `progress` decimal(3,2) DEFAULT NULL,
+  `shitholes` bit(1) DEFAULT NULL,
+  `dragonbros` bit(1) DEFAULT NULL,
+  `asylum` bit(1) DEFAULT NULL,
+  `paintedworld` bit(1) DEFAULT NULL,
+  `manus` bit(1) DEFAULT NULL,
+  `smornstein` int(11) DEFAULT NULL,
+  `adpp` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
