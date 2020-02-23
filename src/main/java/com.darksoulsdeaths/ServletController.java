@@ -44,6 +44,11 @@ public class ServletController extends HttpServlet
                     response.setContentType("application/JSON");
                     writer.println(Utilities.mapToJson(DataManager.getDeathAndADPPAverages()));
                     break;
+                case "getadppcounts":
+                    //TODO:just a debug for DB connection
+                    response.setContentType("application/JSON");
+                    writer.println(Utilities.listMapToJson(DataManager.getADPPCounts()));
+                    break;
                 default:
                     response.setContentType("text/html");
                     writer.println("ERROR: Unable to process request: " + action);

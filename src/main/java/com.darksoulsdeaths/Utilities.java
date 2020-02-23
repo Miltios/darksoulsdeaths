@@ -41,15 +41,16 @@ public class Utilities
         sb.append("\n}");
         return sb.toString();
     }
-    public static String listMapToJson(List<Map<String,?>> list)
+    public static String listMapToJson(List<? extends Map<String,?>> list)
     {
         StringBuilder sb = new StringBuilder();
-        sb.append("{\n");
-        for(Map<String,?> map : list)
+        sb.append("[\n");
+        for(Map map : list)
         {
-            sb.append(mapToJson(map));
+            sb.append(mapToJson(map)).append(",");
         }
-        sb.append("\n}");
+        removeTrailingChar(sb, ',');
+        sb.append("\n]");
         return sb.toString();
     }
 }
