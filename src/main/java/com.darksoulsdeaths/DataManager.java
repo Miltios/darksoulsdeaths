@@ -3,6 +3,7 @@ package com.darksoulsdeaths;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -64,29 +65,90 @@ public class DataManager
     }
     public static List<Map<String,Integer>> getADPPCounts()
     {
-        List<Map<String,Integer>> result = new ArrayList<>();
+        String sql = "SELECT rangeIndex, count FROM " + schemaString + "adppcounts " +
+                "ORDER BY rangeIndex ASC";
+        return getListMapInteger(sql, "Failed to get death and ADPP averages!");
+    }
+    public static List<Map<String,Integer>> getDeathCounts()
+    {
+        String sql = "SELECT rangeIndex, count FROM " + schemaString + "deathcounts " +
+                "ORDER BY rangeIndex ASC";
+        return getListMapInteger(sql, "Failed to get death counts!");
+    }
+    public static List<Map<String,String>> getOptionalCounts()
+    {
+        return getListMapString("SELECT optionalareasname, percentage FROM " + schemaString + "optionalcounts", "Failed to get optional area counts!");
+    }
+    public static List<Map<String,Integer>> getPlaythroughCounts()
+    {
+        return getListMapInteger("SELECT * FROM " + schemaString + "playthroughcounts", "Failed to get optional area counts!");
+    }
+    public static List<Map<String,Integer>> getProgressCounts()
+    {
+        return getListMapInteger("SELECT progress, percentage FROM " + schemaString + "progresscounts", "Failed to get progress counts!");
+    }
+    public static List<Map<String,String>> getSmornsteinCounts()
+    {
+        return getListMapString("SELECT smornsteinname, count FROM " + schemaString + "smornsteincounts", "Failed to get smornstein counts!");
+    }
+    private static List<Map<String,String>> getListMapString(String sql, String error)
+    {
+        List<Map<String,String>> result = new ArrayList<>();
 
         Connection c = ConnectionManager.getConnection();
         try
         {
-            String sql = "SELECT rangeIndex, count FROM " + schemaString + "adppcounts " +
-                    "ORDER BY rangeIndex ASC";
             PreparedStatement statement = c.prepareStatement(sql);
             if(statement.execute())
             {
                 ResultSet rs = statement.getResultSet();
+                ResultSetMetaData meta = rs.getMetaData();
                 while(rs.next())
                 {
-                    Map<String,Integer> row = new HashMap<>();
-                    row.put("rangeIndex", rs.getInt("rangeIndex"));
-                    row.put("count", rs.getInt("count"));
+                    Map<String,String> row = new HashMap<>();
+                    //we're not doing this dynamically with variable column counts/types because our data structure only supports one thing anyway
+                    String keyColName = meta.getColumnName(1);
+                    String valColName = meta.getColumnName(2);
+                    row.put(keyColName, rs.getString(keyColName));
+                    row.put(valColName, rs.getString(valColName));
                     result.add(row);
                 }
             }
         }
         catch(SQLException e)
         {
-            System.out.println("Failed to get death and ADPP averages!");
+            System.out.println(error);
+            e.printStackTrace();
+        }
+        return result;
+    }
+    private static List<Map<String,Integer>> getListMapInteger(String sql, String error)
+    {
+        List<Map<String,Integer>> result = new ArrayList<>();
+
+        Connection c = ConnectionManager.getConnection();
+        try
+        {
+            PreparedStatement statement = c.prepareStatement(sql);
+            if(statement.execute())
+            {
+                ResultSet rs = statement.getResultSet();
+                ResultSetMetaData meta = rs.getMetaData();
+                while(rs.next())
+                {
+                    Map<String,Integer> row = new HashMap<>();
+                    //we're not doing this dynamically with variable column counts/types because our data structure only supports one thing anyway
+                    String keyColName = meta.getColumnName(1);
+                    String valColName = meta.getColumnName(2);
+                    row.put(keyColName, rs.getInt(keyColName));
+                    row.put(valColName, rs.getInt(valColName));
+                    result.add(row);
+                }
+            }
+        }
+        catch(SQLException e)
+        {
+            System.out.println(error);
             e.printStackTrace();
         }
         return result;
