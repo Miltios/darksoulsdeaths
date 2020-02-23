@@ -12,7 +12,7 @@ import java.util.Map;
 
 //TODO: redirect system.out.println to someplace useful
 
-public class DataManager
+class DataManager
 {
     private static String schemaString = ConnectionManager.getSchemaString();
 
@@ -21,7 +21,7 @@ public class DataManager
     {
         //
     }
-    public static Map<String,Integer> getDeathAndADPPAverages()
+    static Map<String,Integer> getDeathAndADPPAverages()
     {
         Map<String,Integer> result = new HashMap<>();
 
@@ -63,31 +63,31 @@ public class DataManager
         }
         return result;
     }
-    public static List<Map<String,Integer>> getADPPCounts()
+    static List<Map<String,Integer>> getADPPCounts()
     {
         String sql = "SELECT rangeIndex, count FROM " + schemaString + "adppcounts " +
                 "ORDER BY rangeIndex ASC";
         return getListMapInteger(sql, "Failed to get death and ADPP averages!");
     }
-    public static List<Map<String,Integer>> getDeathCounts()
+    static List<Map<String,Integer>> getDeathCounts()
     {
         String sql = "SELECT rangeIndex, count FROM " + schemaString + "deathcounts " +
                 "ORDER BY rangeIndex ASC";
         return getListMapInteger(sql, "Failed to get death counts!");
     }
-    public static List<Map<String,String>> getOptionalCounts()
+    static List<Map<String,String>> getOptionalCounts()
     {
         return getListMapString("SELECT optionalareasname, percentage FROM " + schemaString + "optionalcounts", "Failed to get optional area counts!");
     }
-    public static List<Map<String,Integer>> getPlaythroughCounts()
+    static List<Map<String,Integer>> getPlaythroughCounts()
     {
         return getListMapInteger("SELECT * FROM " + schemaString + "playthroughcounts", "Failed to get optional area counts!");
     }
-    public static List<Map<String,Integer>> getProgressCounts()
+    static List<Map<String,Integer>> getProgressCounts()
     {
         return getListMapInteger("SELECT progress, percentage FROM " + schemaString + "progresscounts", "Failed to get progress counts!");
     }
-    public static List<Map<String,String>> getSmornsteinCounts()
+    static List<Map<String,String>> getSmornsteinCounts()
     {
         return getListMapString("SELECT smornsteinname, count FROM " + schemaString + "smornsteincounts", "Failed to get smornstein counts!");
     }
