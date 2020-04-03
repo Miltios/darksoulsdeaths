@@ -133,8 +133,49 @@ public class ServletController extends HttpServlet
                     }
                     break;
                 case "stats":
-                    //TODO:take the submitted form data, put it in the DB, and forward user to the regular /stats page (we are currently in /request/stats)
-                    request.getRequestDispatcher("/stats.jsp").forward(request, response);
+                    //take the submitted form data and put it in the DB, then forward the user to the regular /stats page (we are currently in /request/stats)
+                    Map<String,String> data = new HashMap<>();
+                    String playerId = request.getParameter("playerid");
+                    if(playerId == null)
+                    {
+                        playerId = "defaultPlayerId"; //TODO
+                    }
+                    data.put("playerid", playerId);
+                    data.put("name", request.getParameter("name"));
+                    data.put("deaths", request.getParameter("deaths"));
+                    data.put("playthrough", request.getParameter("playthrough"));
+                    data.put("progress", request.getParameter("progress"));
+                    data.put("shitholes", "on".equals(request.getParameter("optional-shitholes"))?"true":"false");
+                    data.put("dragonbros", "on".equals(request.getParameter("optional-dragonbros"))?"true":"false");
+                    data.put("asylum", "on".equals(request.getParameter("optional-asylum"))?"true":"false");
+                    data.put("painted", "on".equals(request.getParameter("optional-painted"))?"true":"false");
+                    data.put("manus", "on".equals(request.getParameter("optional-manus"))?"true":"false");
+                    data.put("smornstein", request.getParameter("smornstein"));
+
+                    //TODO:DEBUG
+                    for(String key : data.keySet())
+                    {
+                        System.out.print(key + ": " + data.get(key));
+                        System.out.println();
+                    }
+
+
+
+                    if(DataManager.submitCharacter(data))
+                    {
+                        System.out.println("success!"); //TODO:DEBUG
+                    }
+                    else
+                    {
+                        System.out.println("failure!"); //TODO:DEBUG
+                    }
+
+
+
+                    //HACK: we want the user actually *on* /stats.jsp rather than just serving them the content from here.
+                    //We also need the POST data, which doesn't get included in a regular sendRedirect().
+                    response.setStatus(HttpServletResponse.SC_TEMPORARY_REDIRECT);
+                    response.setHeader("Location", "../stats");
                     break;
                 case "resetlimiter":
                     response.setContentType("application/JSON");

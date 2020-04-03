@@ -153,4 +153,62 @@ class DataManager
         }
         return result;
     }
+    public static boolean submitCharacter(Map<String,String> data)
+    {
+        Connection c = ConnectionManager.getConnection();
+        try
+        {
+            String playerid = data.get("playerid");
+            String name = data.get("name");
+            int deaths = Integer.parseInt(data.get("deaths"));
+            int playthrough = Integer.parseInt(data.get("playthrough"));
+            double progress = Double.parseDouble(data.get("progress"));
+            boolean shitholes = Boolean.parseBoolean(data.get("shitholes"));
+            boolean dragonbros = Boolean.parseBoolean(data.get("dragonbros"));
+            boolean asylum = Boolean.parseBoolean(data.get("asylum"));
+            boolean painted = Boolean.parseBoolean(data.get("painted"));
+            boolean manus = Boolean.parseBoolean(data.get("manus"));
+            int smornstein = Integer.parseInt(data.get("smornstein"));
+            int adpp;
+            if(progress == 0) //treat as progress = .02 but don't want to mess up charts by explicitly setting progress as such
+            {
+                adpp = deaths * 50;
+            }
+            else
+            {
+                adpp = (int) Math.round(deaths/(playthrough+progress));
+            }
+
+            //we might consider "ON DUPLICATE KEY UPDATE" instead, but every field is getting replaced anyway
+            String sql = "REPLACE INTO characters (playerid, charactername, deaths, playthrough, progress, shitholes, " +
+                    "dragonbros, asylum, paintedworld, manus, smornstein, adpp) " +
+                    "VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
+            PreparedStatement statement = c.prepareStatement(sql);
+            statement.setString(1, playerid);
+            statement.setString(2, name);
+            statement.setInt(3, deaths);
+            statement.setInt(4, playthrough);
+            statement.setDouble(5, progress);
+            statement.setBoolean(6, shitholes);
+            statement.setBoolean(7, dragonbros);
+            statement.setBoolean(8, asylum);
+            statement.setBoolean(9, painted);
+            statement.setBoolean(10, manus);
+            statement.setInt(11, smornstein);
+            statement.setInt(12, adpp);
+            statement.executeUpdate();
+
+            return true;
+        }
+        catch(SQLException e)
+        {
+            e.printStackTrace();
+            return false;
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+            return false;
+        }
+    }
 }

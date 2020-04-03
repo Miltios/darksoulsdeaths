@@ -39,7 +39,7 @@
                     <td>Total deaths: <span id="span-deaths"><%=deaths%></span></td>
                 </tr>
                 </table>
-                    <form name="playerInfo" method="POST" action="stats" enctype="multipart/form-data" >
+                    <form name="playerInfo" method="POST" action="stats" >
                         <p>Help us make pretty graphs!  Fill in a little extra information about your progress so we can make the stats page more useful and show you how you stack up against everyone else.  Don't worry; everything is anonymous, so nobody will have to know how much you suck at this game.</p>
                         <div id="extraCharInfos"><div class="extra-info">
                             <label for="playthrough">What's the highest <a href="http://darksouls.wikidot.com/new-game-plus" class="spoiler-link">playthrough</a> you've COMPLETED with this character?</label>
