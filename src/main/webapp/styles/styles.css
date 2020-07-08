@@ -24,6 +24,28 @@ body
     border-style: solid;
     border-radius: 10px;
     background-color: black;
+    background-image: url(../images/you-died.png),
+                       url(../images/background-home.png);
+}
+#wrapper.nav-about
+{
+    background-image: url(../images/you-died.png),
+                       url(../images/background-about.png);
+}
+#wrapper.nav-faq
+{
+    background-image: url(../images/you-died.png),
+                       url(../images/background-faq.png);
+}
+#wrapper.nav-results
+{
+    background-image: url(../images/you-died.png),
+                       url(../images/background-results.png);
+}
+#wrapper.nav-stats
+{
+    background-image: url(../images/you-died.png),
+                       url(../images/background-stats.png);
 }
 .content-left
 {
@@ -132,7 +154,7 @@ body
     padding-top: 20px;
     color: #877656;
 }
-.content-right
+/*.content-right
 {
     width: 50%;
     display: flex;
@@ -143,7 +165,7 @@ body
 {
     width: 100%;
     height: 144px;
-}
+}*/
 
 /*******palette:*******
 dark brown: #443300
