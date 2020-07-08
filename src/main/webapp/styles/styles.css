@@ -1,29 +1,45 @@
+/* load custom font(s) */
+@import url(http://fonts.googleapis.com/css?family=Marcellus+SC);
+
 body
 {
     margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: black;
 }
 #wrapper
 {
     height: 720px;
     width: 1280px;
     display: flex;
+    border-color: #877656;
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 10px;
+    background-color: black;
 }
 .content-left
 {
     width: 50%;
     display: flex;
     flex-direction: column;
+    color: #e4e4e4;
+    font-family: garamond,serif;
 }
 .navbar
 {
     height: 83px;
+    font-family: Marcellus SC;
 }
 .content-body
 {
     flex-grow: 1;
+}
+.uppercase
+{
+    font-family: Marcellus SC;
 }
 .copyright-notice
 {
