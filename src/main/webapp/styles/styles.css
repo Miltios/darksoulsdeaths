@@ -34,6 +34,7 @@ body
 {
     height: 83px;
     font-family: Marcellus SC;
+    padding-top: 47px;
 }
 .navbar ul
 {
@@ -66,17 +67,18 @@ body
 {
     font-family: Marcellus SC;
 }
-.copyright-notice
-{
-    height: 83px;
-    font-size: 13px;
-}
 .description-top
 {
     padding: 30px 60px;
 }
 .description-bottom
 {
+    padding: 30px 60px;
+}
+.copyright-notice
+{
+    height: 83px;
+    font-size: 13px;
     padding: 30px 60px;
 }
 .content-right
