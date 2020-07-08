@@ -40,6 +40,10 @@ body
     font-family: Marcellus SC;
     padding: 47px 60px 0 60px;
 }
+.navbar-link
+{
+    padding: 6px;
+}
 .navbar ul
 {
     padding: 0 0 8px 0;
@@ -74,6 +78,11 @@ body
 .description-top
 {
     padding: 30px 60px;
+}
+.file-uploader
+{
+    font-family:Marcellus SC;
+    font-size: 18px;
 }
 .description-bottom
 {
