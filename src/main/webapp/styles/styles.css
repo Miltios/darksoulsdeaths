@@ -1,6 +1,10 @@
 /* load custom font(s) */
 @import url(https://fonts.googleapis.com/css?family=Marcellus+SC);
 
+a
+{
+    text-decoration: none;
+}
 body
 {
     margin: 0;
@@ -58,7 +62,6 @@ body
 .navbar a
 {
     color: #e4e4e4;
-    text-decoration: none;
 }
 .content-body
 {
@@ -79,6 +82,7 @@ body
 .description-bottom a
 {
     color: #d5a867;
+    position: relative;
 }
 .description-bottom a:before
 {
@@ -93,7 +97,7 @@ body
     transform: scaleX(0);
     transition: all 0.2s ease-in-out 0s;
 }
-.description-bottom a:before:hover
+.description-bottom a:hover:before
 {
     visibility: visible;
     transform: scaleX(1);
