@@ -8,6 +8,7 @@ body
     justify-content: center;
     align-items: center;
     background-color: black;
+    font-size: 16px;
 }
 #wrapper
 {
@@ -41,7 +42,16 @@ body
 }
 .navbar ul>li
 {
-    display: inline;
+    display: inline-block;
+    background-color: transparent;
+    transition: 0.2s;
+    padding:6px;
+    width: 86px;
+}
+.navbar ul>li:hover
+{
+    background-color: #4f1f05;
+    transition: 0.2s;
 }
 .navbar a
 {
@@ -59,6 +69,15 @@ body
 .copyright-notice
 {
     height: 83px;
+    font-size: 13px;
+}
+.description-top
+{
+    padding: 30px 60px;
+}
+.description-bottom
+{
+    padding: 30px 60px;
 }
 .content-right
 {
