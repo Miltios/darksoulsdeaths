@@ -38,11 +38,19 @@ body
 {
     height: 53px;
     font-family: Marcellus SC;
-    padding: 47px 0 0 60px;
+    padding: 47px 60px 0 60px;
 }
-.navbar-link
+.navbar-bullet-start
+{
+    padding: 6px 6px 6px 0;
+}
+.navbar-bullet
 {
     padding: 6px;
+}
+.navbar-bullet-end
+{
+    padding: 6px 0 6px 6px;
 }
 .navbar ul
 {
