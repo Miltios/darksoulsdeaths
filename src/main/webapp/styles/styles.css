@@ -27,11 +27,26 @@ body
     flex-direction: column;
     color: #e4e4e4;
     font-family: garamond,serif;
+    text-align: center;
 }
 .navbar
 {
     height: 83px;
     font-family: Marcellus SC;
+}
+.navbar ul
+{
+    padding: 0;
+    list-style-type: none;
+}
+.navbar ul>li
+{
+    display: inline;
+}
+.navbar a
+{
+    color: #e4e4e4;
+    text-decoration: none;
 }
 .content-body
 {
