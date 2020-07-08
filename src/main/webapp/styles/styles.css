@@ -52,22 +52,16 @@ body
 {
     padding: 6px 0 6px 5px;
 }
-.navbar ul
-{
-    padding: 0 0 8px 0;
-    list-style-type: none;
-    margin: 0;
-    display: inline-flex;
-}
-.navbar ul>li
+.navlink
 {
     display: inline-block;
     background-color: transparent;
+    margin: 0;
     transition: 0.2s;
-    padding:6px;
+    padding:6px 6px 8px 6px;
     width: 86px;
 }
-.navbar ul>li:hover
+.navlink:hover
 {
     background-color: #4f1f05;
     transition: 0.2s;
