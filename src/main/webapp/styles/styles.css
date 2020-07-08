@@ -42,15 +42,15 @@ body
 }
 .navbar-bullet-start
 {
-    padding: 6px 6px 6px 0;
+    padding: 6px 5px 6px 0;
 }
 .navbar-bullet
 {
-    padding: 6px;
+    padding: 6px 5px;
 }
 .navbar-bullet-end
 {
-    padding: 6px 0 6px 6px;
+    padding: 6px 0 6px 5px;
 }
 .navbar ul
 {
