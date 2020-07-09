@@ -84,13 +84,14 @@ body
     transition: 0.2s;
     padding:6px;
     width: 86px;
+    cursor: pointer;
 }
 .navlink:hover
 {
     background-color: #4f1f05;
     transition: 0.2s;
 }
-.navbar a
+.navbar span
 {
     color: #e4e4e4;
 }
