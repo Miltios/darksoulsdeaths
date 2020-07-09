@@ -49,5 +49,44 @@
         </div>
     </div>-->
 </div>
+<script type="text/javascript">
+    function navigate(page)
+    {
+        let wrapper = document.getElementById('wrapper');
+
+        for(let i=0; i<wrapper.classList.length; i++)
+        {
+            if(wrapper.classList[i].indexOf('nav-') === 0)
+            {
+                wrapper.classList.remove(wrapper.classList[i]);
+            }
+        }
+
+        if(page === 'home')
+        {
+            wrapper.classList.add('nav-home');
+        }
+        else if(page === 'stats')
+        {
+            wrapper.classList.add('nav-stats');
+        }
+        else if(page === 'about')
+        {
+            wrapper.classList.add('nav-about');
+        }
+        else if(page === 'faq')
+        {
+            wrapper.classList.add('nav-faq');
+        }
+        else if(page === 'results')
+        {
+            wrapper.classList.add('nav-results');
+        }
+        else
+        {
+            console.error('Page name "' + page + '" not found!');
+        }
+    }
+</script>
 </body>
 </html>
