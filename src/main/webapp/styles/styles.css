@@ -53,10 +53,10 @@ body
     background-image: url(../images/you-died.png),
                        url(../images/background-stats.png);
 }
-#wrapper.nav-about #navAbout,
-#wrapper.nav-home #navHome,
-#wrapper.nav-faq #navFaq,
-#wrapper.nav-stats #navStats
+#wrapper.nav-about #navAbout:not(:hover),
+#wrapper.nav-home #navHome:not(:hover),
+#wrapper.nav-faq #navFaq:not(:hover),
+#wrapper.nav-stats #navStats:not(:hover)
 {
     border-color: #e4e4e4;
     border-width: 1px 0;
@@ -99,6 +99,9 @@ body
     padding:6px;
     width: 86px;
     cursor: pointer;
+    border-width: 1px 0;
+    border-color: transparent;
+    border-style: solid;
 }
 .navlink:hover
 {
