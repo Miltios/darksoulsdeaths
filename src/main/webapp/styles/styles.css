@@ -59,7 +59,7 @@ body
 #wrapper.nav-stats #navStats
 {
     border-color: #e4e4e4;
-    border-width: 0 1px;
+    border-width: 1px 0;
     border-style: solid;
 }
 .content-left
