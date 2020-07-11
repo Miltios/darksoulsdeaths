@@ -1,6 +1,10 @@
 /* load custom font(s) */
 @import url(https://fonts.googleapis.com/css?family=Marcellus+SC);
 
+:focus
+{
+    outline: none;
+}
 a
 {
     text-decoration: none;
@@ -48,6 +52,15 @@ body
 {
     background-image: url(../images/you-died.png),
                        url(../images/background-stats.png);
+}
+#wrapper.nav-about #navAbout,
+#wrapper.nav-home #navHome,
+#wrapper.nav-faq #navFaq,
+#wrapper.nav-stats #navStats
+{
+    border-color: #e4e4e4;
+    border-width: 0 1px;
+    border-style: solid;
 }
 .content-left
 {
@@ -123,7 +136,7 @@ body
 }
 form
 {
-margin-block-end: 0;
+    margin-block-end: 0;
 }
 .file-uploader,
 #submit
@@ -176,10 +189,6 @@ line-height: 29px;
 {
     outline: 1px dotted #000;
     outline: -webkit-focus-ring-color auto 5px;
-}
-#submit
-{
-    line-height: 29px;
 }
 .description-bottom
 {
