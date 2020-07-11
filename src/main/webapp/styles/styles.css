@@ -108,7 +108,12 @@ body
 {
     padding: 30px 60px;
 }
-.file-uploader
+.form
+{
+margin-block-end: 0;
+}
+.file-uploader,
+#submit
 {
     font-family:Marcellus SC;
     font-size: 18px;
@@ -137,6 +142,7 @@ body
     height: 30px;
     line-height: 30px;
     margin: 7px;
+    box-sizing: border-box;
 }
 .inputfile:focus+label,
 .inputfile:focus~#submit,
@@ -154,6 +160,11 @@ body
 {
     outline: 1px dotted #000;
     outline: -webkit-focus-ring-color auto 5px;
+}
+#submit
+{
+    position: relative;
+    top: 1px;
 }
 .description-bottom
 {
