@@ -123,25 +123,34 @@ body
 	position: absolute;
 	z-index: -1;
 }
-.inputfile+label
+.inputfile+label,
+.inputfile~#submit
 {
     color: #e4e4e4;
     background-color: black;
     border-color: #e4e4e4;
     border-width: 1px;
+    border-style: solid;
     display: inline-block;
     cursor: pointer;
-    width: 71px;
-    height: 13px;
+    width: 120px;
+    height: 30px;
+    line-height: 30px;
+    margin: 7px;
 }
 .inputfile:focus+label,
-.inputfile+label:hover
+.inputfile:focus~#submit,
+.inputfile+label:hover,
+.inputfile~#submit:hover
 {
     background-color: #4f1f05;
     border-color: #4f1f05;
     border-width: 1px;
+    border-style: solid;
+    transition: 0.2s;
 }
-.inputfile:focus + label
+.inputfile:focus + label,
+.inputfile:focus~#submit
 {
     outline: 1px dotted #000;
     outline: -webkit-focus-ring-color auto 5px;
