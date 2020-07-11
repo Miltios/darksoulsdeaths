@@ -108,6 +108,15 @@ body
 {
     padding: 30px 60px;
 }
+#fileName
+{
+    font-family: Garamond,serif;
+    font-size: 14px;
+    color: #e4e4e4;
+    border: 1px solid #e4e4e4;
+    border-radius: 3px;
+    background-color: black;
+}
 form
 {
 margin-block-end: 0;
@@ -128,6 +137,10 @@ margin-block-end: 0;
 	position: absolute;
 	z-index: -1;
 }
+.inputfile+label
+{
+line-height: 30px;
+}
 .inputfile+label,
 .inputfile~#submit
 {
@@ -140,7 +153,6 @@ margin-block-end: 0;
     cursor: pointer;
     width: 120px;
     height: 30px;
-    line-height: 30px;
     margin: 7px;
     box-sizing: border-box;
 }
@@ -163,8 +175,7 @@ margin-block-end: 0;
 }
 #submit
 {
-    position: relative;
-    top: 1px;
+    line-height: 29px;
 }
 .description-bottom
 {
