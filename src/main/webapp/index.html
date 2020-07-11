@@ -28,7 +28,8 @@
             </div>
             <div class="file-uploader">
                 <form id="saveFile" method="POST" action="cgi-bin/results.py" enctype="multipart/form-data">
-                    <input type="file" id="dsSaveFile" name="dsSaveFile">
+                    <input type="file" name="file" id="file" class="inputfile" />
+                    <label for="file">UPLOAD</label>
                     <input type="submit" id="submit" value="UPLOAD" onclick="document.getElementById('div-loading').style.display = 'block';">
                 </form>
             </div>

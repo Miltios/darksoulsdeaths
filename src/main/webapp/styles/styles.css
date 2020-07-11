@@ -113,6 +113,39 @@ body
     font-family:Marcellus SC;
     font-size: 18px;
 }
+/*Inputfile code from https://tympanus.net/codrops/2015/09/15/styling-customizing-file-inputs-smart-way/*/
+.inputfile
+{
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+.inputfile+label
+{
+    color: #e4e4e4;
+    background-color: black;
+    border-color: #e4e4e4;
+    border-width: 1px;
+    display: inline-block;
+    cursor: pointer;
+    width: 71px;
+    height: 13px;
+}
+.inputfile:focus+label,
+.inputfile+label:hover
+{
+    background-color: #4f1f05;
+    border-color: #4f1f05;
+    border-width: 1px;
+}
+.inputfile:focus + label
+{
+    outline: 1px dotted #000;
+    outline: -webkit-focus-ring-color auto 5px;
+}
 .description-bottom
 {
     padding: 30px 60px;
