@@ -29,7 +29,7 @@
             <div class="file-uploader">
                 <input disabled type="text" id="fileName" name="fileName" value="No file selected"><br>
                 <form id="saveFile" method="POST" action="cgi-bin/results.py" enctype="multipart/form-data">
-                    <input type="file" name="file" id="file" class="inputfile" />
+                    <input type="file" name="file" id="file" class="inputfile" onchange="updateFileName(this)"/>
                     <label for="file">BROWSE</label>
                     <input type="submit" id="submit" value="UPLOAD" onclick="document.getElementById('div-loading').style.display = 'block';">
                 </form>
@@ -88,6 +88,23 @@
         {
             console.error('Page name "' + page + '" not found!');
         }
+    }
+    function updateFileName(fileInput)
+    {
+        let displayField = document.getElementById('fileName');
+        let fname = fileInput.value;
+
+        if(fname === '')
+        {
+            displayField.value = 'No file selected.';
+            return;
+        }
+
+        //remove "C:\fakepath\"
+        fname = fname.split('\\');
+        fname = fname[fname.length-1];
+
+        displayField.value = fname;
     }
 </script>
 </body>
