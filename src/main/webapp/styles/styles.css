@@ -95,7 +95,7 @@ body
     display: inline-block;
     background-color: transparent;
     margin: 0 0 8px 0;
-    transition: 0.5s;
+    transition: 0.3s;
     padding:6px;
     width: 86px;
     cursor: pointer;
@@ -106,7 +106,7 @@ body
 .navlink:hover
 {
     background-color: #4f1f05;
-    transition: 0.5s;
+    transition: 0.3s;
 }
 .navbar span
 {
@@ -185,7 +185,7 @@ line-height: 29px;
     border-color: #4f1f05;
     border-width: 1px;
     border-style: solid;
-    transition: 0.2s;
+    transition: 0.3s;
 }
 .inputfile:focus + label,
 .inputfile:focus~#submit
