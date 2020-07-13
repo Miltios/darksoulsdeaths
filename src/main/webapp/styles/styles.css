@@ -152,7 +152,7 @@ body
 #contentBody
 {
     flex-grow: 1;
-    overflow: auto;
+    overflow-y: auto;
     margin: 0 40px;
     padding: 0 10px;
 }
@@ -178,6 +178,26 @@ body
 {
     visibility: visible;
     transform: scaleX(1);
+}
+/*scrollbar styling from https://css-tricks.com/the-current-state-of-styling-scrollbars/*/
+html {
+  --scrollbarBG: transparent;
+  --thumbBG: #877656;
+}
+#contentBody::-webkit-scrollbar {
+  width: 6px;
+}
+#contentBody {
+  scrollbar-width: thin;
+  scrollbar-color: var(--thumbBG) var(--scrollbarBG);
+}
+#contentBody::-webkit-scrollbar-track {
+  background: transparent;
+}
+#contentBody::-webkit-scrollbar-thumb {
+  background-color: var(--thumbBG) ;
+  border-radius: 2px;
+  border: 3px solid var(--scrollbarBG);
 }
 .uppercase
 {
