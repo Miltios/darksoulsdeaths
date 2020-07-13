@@ -68,14 +68,14 @@ body
     display: flex;
     flex-direction: column;
     color: #e4e4e4;
-    font-family: garamond,serif;
+    font-family: Garamond,serif;
     text-align: center;
 }
 .navbar
 {
     height: 53px;
     font-family: Marcellus SC;
-    padding: 47px 60px 0 60px;
+    padding: 28px 60px 0 60px;
     cursor: default;
     margin-bottom: 30px;
 }
@@ -95,7 +95,7 @@ body
 {
     display: inline-block;
     background-color: transparent;
-    margin: 0 0 8px 0;
+    margin: 0 0 18px 0;
     transition: 0.3s;
     padding:6px;
     width: 86px;
