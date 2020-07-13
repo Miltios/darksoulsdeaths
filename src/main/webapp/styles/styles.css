@@ -116,6 +116,8 @@ body
 .content-body
 {
     flex-grow: 1;
+    overflow: auto;
+    margin: 0 40px;
 }
 .uppercase
 {
@@ -123,7 +125,7 @@ body
 }
 .description-top
 {
-    padding: 0 60px 30px 60px;
+    padding-bottom: 30px;
 }
 #fileName
 {
@@ -196,7 +198,7 @@ line-height: 29px;
 }
 .description-bottom
 {
-    padding: 19px 60px 0 60px;
+    padding: 19px 10px 0 10px;
 }
 .description-bottom a
 {
