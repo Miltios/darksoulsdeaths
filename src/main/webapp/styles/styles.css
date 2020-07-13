@@ -62,9 +62,15 @@ body
     border-width: 1px 0;
     border-style: solid;
 }
-#wrapper.nav-about #contentFaq,
-#wrapper.nav-about #contentHome,
-#wrapper.nav-about #contentStats,
+#wrapper.nav-about #contentFaq
+{
+    display: none;
+}
+#wrapper.nav-about #contentHome
+{
+    display: none;
+}
+#wrapper.nav-about #contentStats
 {
     display: none;
 }
@@ -74,9 +80,15 @@ body
 {
     display: none;
 }
-#wrapper.nav-home #contentAbout,
-#wrapper.nav-home #contentFaq,
-#wrapper.nav-home #contentStats,
+#wrapper.nav-home #contentAbout
+{
+    display: none;
+}
+#wrapper.nav-home #contentFaq
+{
+    display: none;
+}
+#wrapper.nav-home #contentStats
 {
     display: none;
 }
