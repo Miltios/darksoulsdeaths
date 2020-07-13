@@ -53,6 +53,7 @@ body
     background-image: url(../images/you-died.png),
                        url(../images/background-stats.png);
 }
+/*white outline on navlink of current page while not being hovered*/
 #wrapper.nav-about #navAbout:not(:hover),
 #wrapper.nav-faq #navFaq:not(:hover),
 #wrapper.nav-home #navHome:not(:hover),
@@ -62,14 +63,9 @@ body
     border-width: 1px 0;
     border-style: solid;
 }
-#wrapper.nav-about #contentFaq
-{
-    display: none;
-}
-#wrapper.nav-about #contentHome
-{
-    display: none;
-}
+/*hiding contents of pages that are not currently in use*/
+#wrapper.nav-about #contentFaq,
+#wrapper.nav-about #contentHome,
 #wrapper.nav-about #contentStats
 {
     display: none;
@@ -80,14 +76,8 @@ body
 {
     display: none;
 }
-#wrapper.nav-home #contentAbout
-{
-    display: none;
-}
-#wrapper.nav-home #contentFaq
-{
-    display: none;
-}
+#wrapper.nav-home #contentAbout,
+#wrapper.nav-home #contentFaq,
 #wrapper.nav-home #contentStats
 {
     display: none;
