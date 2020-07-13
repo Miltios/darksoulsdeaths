@@ -22,20 +22,71 @@
             </div>
         </div>
         <div class="content-body">
-            <div class="description-top">
-                <span class="uppercase">WELCOME TO DARK SOULS DEATHS!</span><br>
-                Upload a save file from Dark Souls to see how many times you have died.
+            <div id="contentHome">
+                <div class="description-top">
+                    <span class="uppercase">WELCOME TO DARK SOULS DEATHS!</span><br>
+                    Upload a save file from Dark Souls to see how many times you have died.
+                </div>
+                <div class="file-uploader">
+                    <input disabled type="text" id="fileName" name="fileName" value="No file selected."><br>
+                    <form id="saveFile" method="POST" action="cgi-bin/results.py" enctype="multipart/form-data">
+                        <input type="file" name="file" id="file" class="inputfile" onchange="updateFileName(this)"/>
+                        <label for="file">BROWSE</label>
+                        <input type="submit" id="submit" value="UPLOAD" onclick="document.getElementById('div-loading').style.display = 'block';">
+                    </form>
+                </div>
+                <div class="description-bottom">
+                    The PC version's save files can be found in <b>Documents/NBGI/DarkSouls/[Your name]</b>. If you have an idea on how to make this work for consoles, <a href="/about.html#contact">let us know</a>.
+                </div>
             </div>
-            <div class="file-uploader">
-                <input disabled type="text" id="fileName" name="fileName" value="No file selected."><br>
-                <form id="saveFile" method="POST" action="cgi-bin/results.py" enctype="multipart/form-data">
-                    <input type="file" name="file" id="file" class="inputfile" onchange="updateFileName(this)"/>
-                    <label for="file">BROWSE</label>
-                    <input type="submit" id="submit" value="UPLOAD" onclick="document.getElementById('div-loading').style.display = 'block';">
-                </form>
+            <div id="contentFaq">
+                <span class="uppercase">FREQUENTLY ASKED QUESTIONS
+                <br><br>
+                Q: MY DEATH COUNT IS REALLY HIGH/LOW! I TOTALLY SUCK/RULE AT THIS GAME!<br>
+                A: </span>That's not actually a question, but it seems to be the #1 misconception among our visitors. Please don't read too much meaning into people's death counts—this game was never meant to discourage dying! Some players are cautious, some are bold, and some are kamikaze lemmings, but all of them have a valid playstyle. (Except the ones who hack for PvP. Fuck you people.)
+                <br><br>
+                <span class="uppercase">Q: MY DEATH COUNT SEEMS OFF. WHAT GIVES?<br>
+                A: </span>So far as we know, this does not count the times you died as a phantom. The details are a little fuzzy on how this works.
+                <br><br>
+                <span class="uppercase">Q: ARE YOU GOING TO SUPPORT DARK SOULS II?<br>
+                A: </span>We hope so! A whole lot of things have to happen first, though:<br>
+                The game gets released for PC (April 25th)<br>
+                We play the game (April 25th until May sometime at least. We aren't speedrunners.)<br>
+                We crack open a save file and find the death counter variable, assuming it exists.<br>
+                We write a whole bunch of code in our free time, between jobs/games/life. Patience!
+                <br><br>
+                <span class="uppercase">Q: ARE YOU GOING TO SUPPORT CONSOLES?<br>
+                A: </span>Possibly, if saves work the same way. Please send us your console save files for testing if you have them! Note that, whatever we come up with, you'll still be on your own for getting the file out of your console and onto the site.
+                <br><br>
+                <span class="uppercase">Q: I GOT A PYTHON ERROR/"DID NOT INPUT A VALID FILE". WHAT'S WRONG?<br>
+                A: </span>Not sure, but we're working on it. The best thing you can do to help is send us your save file and tell us as much as you can about your version of the game—Where did you get it from? What language is it in? Is it pirated/hacked/haunted by malevolent spirits? What are the names of all your characters?
             </div>
-            <div class="description-bottom">
-                The PC version's save files can be found in <b>Documents/NBGI/DarkSouls/[Your name]</b>. If you have an idea on how to make this work for consoles, <a href="/about.html#contact">let us know</a>.
+            <div id="contentAbout">
+                <span class="uppercase">ABOUT US
+                <br><br>
+                VERET</span> is the frontend developer and co-founder of <b>Dark Souls Deaths</b>. When he heard there was a death counter variable in every save game, he was inspired to make a user-friendly way for players to see their death counts and compare stats.  He also has a bit of a thing for <a href="http://imgur.com/a/G3gil">graphs</a>.
+                <br>
+                <span class="uppercase">FACETANK</span> is the backend developer and shorter, beardier co-founder of Dark Souls Deaths. He designed the DB and wrote Python in order to glue all this together.
+                <br><br>
+                <span class="uppercase">CONTRIBUTORS
+                <br><br>
+                EUR0PA</span> first discovered how to extract a player's death count from their save file, using what we can only assume is black magic.  You can still run the <a href="https://gist.github.com/infausto/8382836">original Python script</a> (requires Python 2.7) if this site isn't working for you.
+                <br>
+                <span class="uppercase">DARKDEUS</span> is responsible for the beautiful background screenshots on every page.  You can view the full gallery <a href="http://www.flickr.com/photos/15539352@N02/sets/72157634774669900/">on flickr.</a><p></p>
+                <br><br>
+                <span class="uppercase">CONTACT</span>
+                <br><br>
+                Site questions and feedback<br>
+                <a href="mailto:admin@darksoulsdeaths.com">admin@darksoulsdeaths.com</a>
+                Technical support<br>
+                <a href="mailto:admin@darksoulsdeaths.com">admin@darksoulsdeaths.com</a>
+                Legal inquiries<br>
+                <a href="mailto:admin@darksoulsdeaths.com">admin@darksoulsdeaths.com</a>
+                Hate mail<br>
+                <a href="mailto:admin@darksoulsdeaths.com">support@gfwl.microsoft.com</a>
+            </div>
+            <div id="contentStats">
+                placeholder
             </div>
         </div>
         <div class="copyright-notice">

@@ -54,13 +54,37 @@ body
                        url(../images/background-stats.png);
 }
 #wrapper.nav-about #navAbout:not(:hover),
-#wrapper.nav-home #navHome:not(:hover),
 #wrapper.nav-faq #navFaq:not(:hover),
+#wrapper.nav-home #navHome:not(:hover),
 #wrapper.nav-stats #navStats:not(:hover)
 {
     border-color: #e4e4e4;
     border-width: 1px 0;
     border-style: solid;
+}
+#wrapper.nav-about #contentFaq,
+#wrapper.nav-about #contentHome,
+#wrapper.nav-about #contentStats,
+{
+    display: none;
+}
+#wrapper.nav-faq #contentAbout,
+#wrapper.nav-faq #contentHome,
+#wrapper.nav-faq #contentStats
+{
+    display: none;
+}
+#wrapper.nav-home #contentAbout,
+#wrapper.nav-home #contentFaq,
+#wrapper.nav-home #contentStats,
+{
+    display: none;
+}
+#wrapper.nav-stats #contentAbout,
+#wrapper.nav-stats #contentFaq,
+#wrapper.nav-stats #contentHome
+{
+    display: none;
 }
 .content-left
 {
@@ -118,6 +142,7 @@ body
     flex-grow: 1;
     overflow: auto;
     margin: 0 40px;
+    padding: 0 10px;
 }
 .uppercase
 {
@@ -198,7 +223,7 @@ line-height: 29px;
 }
 .description-bottom
 {
-    padding: 19px 10px 0 10px;
+    padding: 19px 0 0 0;
 }
 .description-bottom a
 {
