@@ -87,7 +87,12 @@
                 <a href="mailto:admin@darksoulsdeaths.com">support@gfwl.microsoft.com</a>
             </div>
             <div id="contentStats">
-                placeholder
+                <div id="chartADPP"></div>
+                <div id="chartDeaths"></div>
+                <div id="chartPlaythrough"></div>
+                <div id="chartProgress"></div>
+                <div id="chartOptional"></div>
+                <div id="chartSmornstein"></div>
             </div>
         </div>
         <div class="copyright-notice">
@@ -103,6 +108,16 @@
         </div>
     </div>-->
 </div>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript" src="/scripts/charts.js"></script>
+<script type="text/javascript">
+    // Load the Visualization API and the piechart package.
+    google.load('visualization', '1.0', {'packages':['corechart']});
+
+    // Set a callback to run when the Google Visualization API is loaded.
+    //TODO: would it be better to load chart data and GV simultaneously, then render when both are done?
+    google.setOnLoadCallback(loadChartData);
+</script>
 <script type="text/javascript">
     function navigate(page)
     {

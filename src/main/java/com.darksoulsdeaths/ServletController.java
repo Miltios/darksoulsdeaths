@@ -25,7 +25,7 @@ public class ServletController extends HttpServlet
     public ServletController() {
     }
 
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException
     {
         Utilities.log("Received GET request: " + request.getRequestURI());
 
@@ -40,37 +40,30 @@ public class ServletController extends HttpServlet
                     writer.println("pong!");
                     break;
                 case "getdeathandadppaverages":
-                    //TODO:just a debug for DB connection
                     response.setContentType("application/JSON");
                     writer.println(Utilities.mapToJson(DataManager.getDeathAndADPPAverages()));
                     break;
                 case "getadppcounts":
-                    //TODO:just a debug for DB connection
                     response.setContentType("application/JSON");
                     writer.println(Utilities.listMapToJson(DataManager.getADPPCounts()));
                     break;
                 case "getdeathcounts":
-                    //TODO:just a debug for DB connection
                     response.setContentType("application/JSON");
                     writer.println(Utilities.listMapToJson(DataManager.getDeathCounts()));
                     break;
                 case "getoptionalcounts":
-                    //TODO:just a debug for DB connection
                     response.setContentType("application/JSON");
                     writer.println(Utilities.listMapToJson(DataManager.getOptionalCounts()));
                     break;
                 case "getplaythroughcounts":
-                    //TODO:just a debug for DB connection
                     response.setContentType("application/JSON");
                     writer.println(Utilities.listMapToJson(DataManager.getPlaythroughCounts()));
                     break;
                 case "getprogresscounts":
-                    //TODO:just a debug for DB connection
                     response.setContentType("application/JSON");
                     writer.println(Utilities.listMapToJson(DataManager.getProgressCounts()));
                     break;
                 case "getsmornsteincounts":
-                    //TODO:just a debug for DB connection
                     response.setContentType("application/JSON");
                     writer.println(Utilities.listMapToJson(DataManager.getSmornsteinCounts()));
                     break;
@@ -86,7 +79,7 @@ public class ServletController extends HttpServlet
             writer.println("ERROR: Unable to process request; no action specified.");
         }
     }
-    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException
     {
         Utilities.log("Received POST request: " + request.getRequestURI());
 
