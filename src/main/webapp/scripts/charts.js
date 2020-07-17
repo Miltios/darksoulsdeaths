@@ -10,7 +10,7 @@ var progress = 0.8;
 var fsize = '25'; // Larger font size if the player-specific titles don't show up.
 var fname = 'Marcellus SC'; // Fancier font, same deal.
 var fcolor = '#EEEEEE';
-var chonk = 534;
+var chonk = 550;
 var tall = 221;
 var titleADPP = 'Average Deaths per Playthrough for All Players: ';
 
