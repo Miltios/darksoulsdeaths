@@ -198,7 +198,7 @@ function drawChartADPP(chartData, parentEl)
             titleTextStyle: {color: accentColor},
             textStyle: {color: accentColor},
             baselineColor:baseColor,
-            gridlines: {color:statsBackground}
+            gridlines: {color:statsBackground},
             viewWindow:{max:1000},
             ticks: [0,100,200,300,400,500,600,700,800,900,{v:1000, f:'1000+'}]
         },
