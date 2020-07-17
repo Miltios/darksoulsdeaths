@@ -15,6 +15,7 @@ var tall = 221;
 var accentColor = '#e4e4e4';
 var statsBackground = '#5c5c5c';
 var baseColor = '#9a9a9a';
+var noMargin = {width:'100%', height:'100%'};
 var titleADPP = 'Average Deaths per Playthrough for All Players: ';
 
 //TODO:specify default chart dimensions, colors, etc.
@@ -193,6 +194,7 @@ function drawChartADPP(chartData, parentEl)
         title: titleADPP,
         titleTextStyle: {color: fcolor, fontSize: fsize, fontName: fname},
         width:chonk, height:tall,
+        chartArea:noMargin,
         hAxis: {
             title: 'Deaths',
             titleTextStyle: {color: accentColor},
@@ -233,6 +235,7 @@ function drawChartDeaths(chartData, parentEl)
         title: titleDeaths,
         titleTextStyle: {color: fcolor, fontSize: fsize, fontName: fname},
         width:chonk, height:tall,
+        chartArea:noMargin,
         hAxis: {
             title: 'Deaths',
             titleTextStyle: {color: accentColor},
@@ -272,6 +275,7 @@ function drawChartPlaythrough(chartData, parentEl)
         titleTextStyle: {color: fcolor, fontSize: fsize, fontName: fname},
         curveType: "function",
         width:chonk, height:tall,
+        chartArea:noMargin,
         vAxis: {
             title:"% of players completed",
             titleTextStyle: {color: accentColor},
@@ -309,6 +313,7 @@ function drawChartProgress(chartData, parentEl)
         titleTextStyle: {color: fcolor, fontSize: fsize, fontName: fname},
         curveType: "none",
         width:chonk, height:tall,
+        chartArea:noMargin,
         vAxis: {
             title:"% of players completed",
             titleTextStyle: {color: accentColor},
@@ -345,6 +350,7 @@ function drawChartOptional(chartData, parentEl)
 
     var options = {
         width:chonk, height:tall,
+        chartArea:noMargin,
         hAxis: {
             textStyle: {color: accentColor},
             slantedText: true,
@@ -379,6 +385,7 @@ function drawChartSmornstein(chartData, parentEl)
 
     var options = {
         width:chonk, height:tall,
+        chartArea:noMargin,
         hAxis: {
             textStyle: {color: accentColor},
             slantedText: true,
