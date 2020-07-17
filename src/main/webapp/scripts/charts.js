@@ -7,11 +7,14 @@ var averageDeaths = 777;
 var averageADPP = 666;
 var playthrough = 555;
 var progress = 0.8;
-var fsize = '25'; // Larger font size if the player-specific titles don't show up.
+var fsize = '16'; // Larger font size if the player-specific titles don't show up.
 var fname = 'Marcellus SC'; // Fancier font, same deal.
 var fcolor = '#EEEEEE';
 var chonk = 550;
 var tall = 221;
+var accentColor = '#e4e4e4';
+var statsBackground = '#5c5c5c';
+var baseColor = '#9a9a9a';
 var titleADPP = 'Average Deaths per Playthrough for All Players: ';
 
 //TODO:specify default chart dimensions, colors, etc.
@@ -192,26 +195,26 @@ function drawChartADPP(chartData, parentEl)
         width:chonk, height:tall,
         hAxis: {
             title: 'Deaths',
-            titleTextStyle: {color: '#CCCCCC'},
-            textStyle: {color: '#CCCCCC'},
-            baselineColor:'#CCCCCC',
-            gridlines: {color:'#666666'},
+            titleTextStyle: {color: accentColor},
+            textStyle: {color: accentColor},
+            baselineColor:baseColor,
+            gridlines: {color:statsBackground}
             viewWindow:{max:1000},
             ticks: [0,100,200,300,400,500,600,700,800,900,{v:1000, f:'1000+'}]
         },
         vAxis: {
             title: 'Players',
-            titleTextStyle: {color: '#CCCCCC'},
-            textStyle: {color: '#CCCCCC'},
-            baselineColor:'#CCCCCC',
-            gridlines: {color:'#666666'},
+            titleTextStyle: {color: accentColor},
+            textStyle: {color: accentColor},
+            baselineColor:baseColor,
+            gridlines: {color:statsBackground},
             viewWindow:{min:0}
         },
         curveType: 'function',
         //enableInteractivity:'false',
         legend: {position: 'none'},
             backgroundColor: 'none',
-            colors: ['#CCBB00']
+        colors: [accentColor]
     };
 
     // Create and draw the visualization.
@@ -232,24 +235,24 @@ function drawChartDeaths(chartData, parentEl)
         width:chonk, height:tall,
         hAxis: {
             title: 'Deaths',
-            titleTextStyle: {color: '#CCCCCC'},
-            textStyle: {color: '#CCCCCC'},
-            baselineColor:'#CCCCCC',
-            gridlines: {color:'#666666'},
+            titleTextStyle: {color: accentColor},
+            textStyle: {color: accentColor},
+            baselineColor:baseColor,
+            gridlines: {color:statsBackground},
             ticks: [0,100,200,300,400,500,600,700,800,900,{v:1000, f:'1000+'}]},
         vAxis: {
             title: 'Players',
-            titleTextStyle: {color: '#CCCCCC'},
-            textStyle: {color: '#CCCCCC'},
-            baselineColor:'#CCCCCC',
-            gridlines: {color:'#666666'},
+            titleTextStyle: {color: accentColor},
+            textStyle: {color: accentColor},
+            baselineColor:baseColor,
+            gridlines: {color:statsBackground},
             viewWindow:{min:0}
         },
         curveType:'function',
         //enableInteractivity:'false',
         legend: {position: 'none'},
             backgroundColor: 'none',
-            colors: ['#CCBB00']
+        colors: [accentColor]
     };
 
     // Create and draw the visualization.
@@ -271,22 +274,22 @@ function drawChartPlaythrough(chartData, parentEl)
         width:chonk, height:tall,
         vAxis: {
             title:"% of players completed",
-            titleTextStyle: {color: '#CCCCCC'},
-            textStyle: {color: '#CCCCCC'},
-            baselineColor:'#CCCCCC',
-            gridlines: {color:'#666666'},
+            titleTextStyle: {color: accentColor},
+            textStyle: {color: accentColor},
+            baselineColor:baseColor,
+            gridlines: {color:statsBackground},
             viewWindow:{min:0}
         },
         hAxis: {
-            baselineColor:'#CCCCCC',
-            gridlines: {color:'#666666'},
+            baselineColor:baseColor,
+            gridlines: {color:statsBackground},
             ticks: [{v:0, f:'NG'},{v:1, f:'NG+'},{v:2, f:'NG+2'},{v:3, f:'NG+3'},{v:4, f:'NG+4'},{v:5, f:'NG+5'},{v:6, f:'NG+6'},{v:7, f:'NG+7'}],
-            textStyle: {color: '#CCCCCC'}
+            textStyle: {color: accentColor}
         },
         legend: {position: 'none'},
         //enableInteractivity:'false',
         backgroundColor: 'none',
-        colors: ['#CCBB00']
+        colors: [accentColor]
     }
 
     // Create and draw the visualization.
@@ -308,24 +311,24 @@ function drawChartProgress(chartData, parentEl)
         width:chonk, height:tall,
         vAxis: {
             title:"% of players completed",
-            titleTextStyle: {color: '#CCCCCC'},
-            textStyle: {color: '#CCCCCC'},
-            baselineColor:'#CCCCCC',
-            gridlines: {color:'#666666'},
+            titleTextStyle: {color: accentColor},
+            textStyle: {color: accentColor},
+            baselineColor:baseColor,
+            gridlines: {color:statsBackground},
             viewWindow:{min:0}
         },
         hAxis: {
-            baselineColor:'#CCCCCC',
-            gridlines: {color:'#666666'},
+            baselineColor:baseColor,
+            gridlines: {color:statsBackground},
             ticks: [{v:0, f:' '},{v:1, f:'Asylum Demon'},{v:2, f:'1st Bell'},{v:3, f:'2nd Bell'},{v:4, f:"Sen\'s Fortress"},{v:5, f:'Anor Londo'},{v:6, f:'1/4 Lord Souls'},{v:7, f:'2/4 Lord Souls'}, {v:8, f:'3/4 Lord Souls'}, {v:9, f:'4/4 Lord Souls'}],
-            textStyle: {color: '#CCCCCC'},
+            textStyle: {color: accentColor},
             slantedText: true,
             slantedTextAngle: 45
         },
         legend: {position: 'none'},
         //enableInteractivity:'false',
         backgroundColor: 'none',
-        colors: ['#CCBB00']
+        colors: [accentColor]
     }
 
     // Create and draw the visualization.
@@ -343,23 +346,23 @@ function drawChartOptional(chartData, parentEl)
     var options = {
         width:chonk, height:tall,
         hAxis: {
-            textStyle: {color: '#CCCCCC'},
+            textStyle: {color: accentColor},
             slantedText: true,
             slantedTextAngle: 45
         },
         vAxis: {
             title: '% of players completed',
-            titleTextStyle: {color: '#CCCCCC'},
-            textStyle: {color: '#CCCCCC'},
-            baselineColor:'#CCCCCC',
-            gridlines: {color:'#666666'},
+            titleTextStyle: {color:accentColor},
+            textStyle: {color:accentColor},
+            baselineColor: baseColor,
+            gridlines: {color:statsBackground},
             viewWindow:{min:0}
         },
         bar: {groupWidth: '90%'},
         //enableInteractivity:'false',
         legend: {position: 'none'},
         backgroundColor: 'none',
-        colors: ['#CCBB00']
+        colors: [accentColor]
     };
 
     // Create and draw the visualization.
@@ -377,23 +380,23 @@ function drawChartSmornstein(chartData, parentEl)
     var options = {
         width:chonk, height:tall,
         hAxis: {
-            textStyle: {color: '#CCCCCC'},
+            textStyle: {color: accentColor},
             slantedText: true,
             slantedTextAngle: 45
         },
         vAxis: {
             title: 'Votes',
-            titleTextStyle: {color: '#CCCCCC'},
-            textStyle: {color: '#CCCCCC'},
-            baselineColor:'#CCCCCC',
-            gridlines: {color:'#666666'},
+            titleTextStyle: {color:accentColor},
+            textStyle: {color:accentColor},
+            baselineColor: baseColor,
+            gridlines: {color:statsBackground},
             viewWindow:{min:0}
         },
         bar: {groupWidth: '90%'},
         //enableInteractivity:'false',
         legend: {position: 'none'},
         backgroundColor: 'none',
-        colors: ['#CCBB00']
+        colors: [accentColor]
     };
 
     // Create and draw the visualization.
