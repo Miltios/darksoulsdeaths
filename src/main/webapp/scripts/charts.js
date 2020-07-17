@@ -208,7 +208,7 @@ function drawChartADPP(chartData, parentEl)
             viewWindow:{min:0}
         },
         curveType: 'function',
-        enableInteractivity:'false',
+        //enableInteractivity:'false',
         legend: {position: 'none'},
             backgroundColor: 'none',
             colors: ['#CCBB00']
@@ -246,7 +246,7 @@ function drawChartDeaths(chartData, parentEl)
             viewWindow:{min:0}
         },
         curveType:'function',
-        enableInteractivity:'false',
+        //enableInteractivity:'false',
         legend: {position: 'none'},
             backgroundColor: 'none',
             colors: ['#CCBB00']
@@ -284,7 +284,7 @@ function drawChartPlaythrough(chartData, parentEl)
             textStyle: {color: '#CCCCCC'}
         },
         legend: {position: 'none'},
-        enableInteractivity:'false',
+        //enableInteractivity:'false',
         backgroundColor: 'none',
         colors: ['#CCBB00']
     }
@@ -323,7 +323,7 @@ function drawChartProgress(chartData, parentEl)
             slantedTextAngle: 45
         },
         legend: {position: 'none'},
-        enableInteractivity:'false',
+        //enableInteractivity:'false',
         backgroundColor: 'none',
         colors: ['#CCBB00']
     }
@@ -356,7 +356,7 @@ function drawChartOptional(chartData, parentEl)
             viewWindow:{min:0}
         },
         bar: {groupWidth: '90%'},
-        enableInteractivity:'false',
+        //enableInteractivity:'false',
         legend: {position: 'none'},
         backgroundColor: 'none',
         colors: ['#CCBB00']
@@ -390,7 +390,7 @@ function drawChartSmornstein(chartData, parentEl)
             viewWindow:{min:0}
         },
         bar: {groupWidth: '90%'},
-        enableInteractivity:'false',
+        //enableInteractivity:'false',
         legend: {position: 'none'},
         backgroundColor: 'none',
         colors: ['#CCBB00']
