@@ -10,6 +10,8 @@ var progress = 0.8;
 var fsize = '25'; // Larger font size if the player-specific titles don't show up.
 var fname = 'Marcellus SC'; // Fancier font, same deal.
 var fcolor = '#EEEEEE';
+var chonk = 534;
+var tall = 215;
 var titleADPP = 'Average Deaths per Playthrough for All Players: ';
 
 //TODO:specify default chart dimensions, colors, etc.
@@ -187,7 +189,7 @@ function drawChartADPP(chartData, parentEl)
     var options = {
         title: titleADPP,
         titleTextStyle: {color: fcolor, fontSize: fsize, fontName: fname},
-        width:1000, height:400,
+        width:chonk, height:tall,
         hAxis: {
             title: 'Deaths',
             titleTextStyle: {color: '#CCCCCC'},
@@ -227,7 +229,7 @@ function drawChartDeaths(chartData, parentEl)
     var options = {
         title: titleDeaths,
         titleTextStyle: {color: fcolor, fontSize: fsize, fontName: fname},
-        width:1000, height:400,
+        width:chonk, height:tall,
         hAxis: {
             title: 'Deaths',
             titleTextStyle: {color: '#CCCCCC'},
@@ -266,7 +268,7 @@ function drawChartPlaythrough(chartData, parentEl)
         title:"Global Completion Rate:",
         titleTextStyle: {color: fcolor, fontSize: fsize, fontName: fname},
         curveType: "function",
-        width: 1000, height: 400,
+        width:chonk, height:tall,
         vAxis: {
             title:"% of players completed",
             titleTextStyle: {color: '#CCCCCC'},
@@ -303,7 +305,7 @@ function drawChartProgress(chartData, parentEl)
         title:"Global Completion Rate (within current playthrough):",
         titleTextStyle: {color: fcolor, fontSize: fsize, fontName: fname},
         curveType: "none",
-        width: 1000, height: 400,
+        width:chonk, height:tall,
         vAxis: {
             title:"% of players completed",
             titleTextStyle: {color: '#CCCCCC'},
@@ -337,7 +339,7 @@ function drawChartOptional(chartData, parentEl)
     data.addRows(chartData);
 
     var options = {
-        width:1000, height:400,
+        width:chonk, height:tall,
         hAxis: {textStyle: {color: '#CCCCCC'}},
         vAxis: {
             title: '% of players completed',
@@ -367,7 +369,7 @@ function drawChartSmornstein(chartData, parentEl)
     data.addRows(chartData);
 
     var options = {
-        width:1000, height:400,
+        width:chonk, height:tall,
         hAxis: {textStyle: {color: '#CCCCCC'}},
         vAxis: {
             title: 'Votes',
