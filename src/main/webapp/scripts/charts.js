@@ -318,7 +318,9 @@ function drawChartProgress(chartData, parentEl)
             baselineColor:'#CCCCCC',
             gridlines: {color:'#666666'},
             ticks: [{v:0, f:' '},{v:1, f:'Asylum Demon'},{v:2, f:'1st Bell'},{v:3, f:'2nd Bell'},{v:4, f:"Sen\'s Fortress"},{v:5, f:'Anor Londo'},{v:6, f:'1/4 Lord Souls'},{v:7, f:'2/4 Lord Souls'}, {v:8, f:'3/4 Lord Souls'}, {v:9, f:'4/4 Lord Souls'}],
-            textStyle: {color: '#CCCCCC'}
+            textStyle: {color: '#CCCCCC'},
+            slantedText: true,
+            slantedTextAngle: 45
         },
         legend: {position: 'none'},
         enableInteractivity:'false',
@@ -340,7 +342,11 @@ function drawChartOptional(chartData, parentEl)
 
     var options = {
         width:chonk, height:tall,
-        hAxis: {textStyle: {color: '#CCCCCC'}},
+        hAxis: {
+            textStyle: {color: '#CCCCCC'},
+            slantedText: true,
+            slantedTextAngle: 45
+        },
         vAxis: {
             title: '% of players completed',
             titleTextStyle: {color: '#CCCCCC'},
@@ -370,7 +376,11 @@ function drawChartSmornstein(chartData, parentEl)
 
     var options = {
         width:chonk, height:tall,
-        hAxis: {textStyle: {color: '#CCCCCC'}},
+        hAxis: {
+            textStyle: {color: '#CCCCCC'},
+            slantedText: true,
+            slantedTextAngle: 45
+        },
         vAxis: {
             title: 'Votes',
             titleTextStyle: {color: '#CCCCCC'},
