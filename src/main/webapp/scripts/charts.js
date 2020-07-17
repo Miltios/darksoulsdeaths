@@ -12,10 +12,10 @@ var fname = 'Marcellus SC'; // Fancier font, same deal.
 var fcolor = '#EEEEEE';
 var chonk = 550;
 var tall = 221;
+var noMargin = {width:'530', height:'201'}; /*set chart width/height to (chonk - Y axis size) and (tall - X axis size) to remove margin/padding*/
 var accentColor = '#e4e4e4';
 var statsBackground = '#5c5c5c';
 var baseColor = '#9a9a9a';
-var noMargin = {width:'100%', height:'100%'};
 var titleADPP = 'Average Deaths per Playthrough for All Players: ';
 
 //TODO:specify default chart dimensions, colors, etc.
