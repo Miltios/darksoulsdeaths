@@ -13,6 +13,7 @@ var fcolor = '#EEEEEE';
 var chonk = 540;
 var tall = 221;
 var noMargin = {width:'490', height:'171'}; /*set chart width/height to (chonk - Y axis size) and (tall - X axis size) to remove margin/padding*/
+var extraVertical = {width:'490', height:'500'};
 var accentColor = '#e4e4e4';
 var statsBackground = '#5c5c5c';
 var baseColor = '#9a9a9a';
@@ -313,7 +314,7 @@ function drawChartProgress(chartData, parentEl)
         titleTextStyle: {color: fcolor, fontSize: fsize, fontName: fname},
         curveType: "none",
         width:chonk, height:tall,
-        chartArea:noMargin,
+        chartArea:extraVertical,
         vAxis: {
             title:"% of players completed",
             titleTextStyle: {color: accentColor},
@@ -350,7 +351,7 @@ function drawChartOptional(chartData, parentEl)
 
     var options = {
         width:chonk, height:tall,
-        chartArea:noMargin,
+        chartArea:extraVertical,
         hAxis: {
             textStyle: {color: accentColor},
             slantedText: true,
@@ -385,7 +386,7 @@ function drawChartSmornstein(chartData, parentEl)
 
     var options = {
         width:chonk, height:tall,
-        chartArea:noMargin,
+        chartArea:extraVertical,
         hAxis: {
             textStyle: {color: accentColor},
             slantedText: true,
