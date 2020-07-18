@@ -12,7 +12,7 @@ var fname = 'Marcellus SC'; // Fancier font, same deal.
 var fcolor = '#EEEEEE';
 var chonk = 550;
 var tall = 221;
-var accentColor = '#e4e4e4';
+var accentColor = '#ebc38b';
 var statsBackground = '#5c5c5c';
 var baseColor = '#9a9a9a';
 var titleADPP = 'Average Deaths per Playthrough for All Players: ';
@@ -33,9 +33,9 @@ titleDeaths = "Average Total Deaths for All Players: " + averageDeaths;
     {
         yourStats[i].style.display = "block";
     }
-    fname = 'Arial';
-    fsize = '15';
-    fcolor = '#CCBB00';
+    fname = 'Garamond';
+    fsize = '16';
+    fcolor = '#ebc38b';
 }
 else // Tweak title wording and change the remaining h2 elements to match the google chart headers
 {
