@@ -10,8 +10,10 @@ var progress = 0.8;
 var fsize = '16'; // Larger font size if the player-specific titles don't show up.
 var fname = 'Marcellus SC'; // Fancier font, same deal.
 var fcolor = '#EEEEEE';
-var chonk = 550;
+var chonk = 540;
 var tall = 221;
+var noMargin = {width:'490', height:'171'}; /*set chart width/height to (chonk - Y axis size) and (tall - X axis size) to remove margin/padding*/
+var extraVertical = {width:'490', height:'100'};
 var accentColor = '#ebc38b';
 var statsBackground = '#5c5c5c';
 var baseColor = '#9a9a9a';
@@ -193,6 +195,7 @@ function drawChartADPP(chartData, parentEl)
         title: titleADPP,
         titleTextStyle: {color: fcolor, fontSize: fsize, fontName: fname},
         width:chonk, height:tall,
+        chartArea:noMargin,
         hAxis: {
             title: 'Deaths',
             titleTextStyle: {color: accentColor},
@@ -233,6 +236,7 @@ function drawChartDeaths(chartData, parentEl)
         title: titleDeaths,
         titleTextStyle: {color: fcolor, fontSize: fsize, fontName: fname},
         width:chonk, height:tall,
+        chartArea:noMargin,
         hAxis: {
             title: 'Deaths',
             titleTextStyle: {color: accentColor},
@@ -272,6 +276,7 @@ function drawChartPlaythrough(chartData, parentEl)
         titleTextStyle: {color: fcolor, fontSize: fsize, fontName: fname},
         curveType: "function",
         width:chonk, height:tall,
+        chartArea:noMargin,
         vAxis: {
             title:"% of players completed",
             titleTextStyle: {color: accentColor},
@@ -309,6 +314,7 @@ function drawChartProgress(chartData, parentEl)
         titleTextStyle: {color: fcolor, fontSize: fsize, fontName: fname},
         curveType: "none",
         width:chonk, height:tall,
+        chartArea:extraVertical,
         vAxis: {
             title:"% of players completed",
             titleTextStyle: {color: accentColor},
@@ -345,6 +351,7 @@ function drawChartOptional(chartData, parentEl)
 
     var options = {
         width:chonk, height:tall,
+        chartArea:extraVertical,
         hAxis: {
             textStyle: {color: accentColor},
             slantedText: true,
@@ -379,6 +386,7 @@ function drawChartSmornstein(chartData, parentEl)
 
     var options = {
         width:chonk, height:tall,
+        chartArea:extraVertical,
         hAxis: {
             textStyle: {color: accentColor},
             slantedText: true,
