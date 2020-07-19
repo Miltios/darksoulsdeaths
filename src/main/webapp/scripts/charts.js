@@ -199,8 +199,8 @@ function drawChartADPP(chartData, parentEl)
         chartArea:noMargin,
         hAxis: {
             title: 'Deaths',
-            titleTextStyle: {color: accentColor},
-            textStyle: {color: accentColor},
+            titleTextStyle: {color: textColor},
+            textStyle: {color: textColor},
             baselineColor:baseColor,
             gridlines: {color:statsBackground},
             viewWindow:{max:1000},
@@ -247,8 +247,8 @@ function drawChartDeaths(chartData, parentEl)
             ticks: [0,100,200,300,400,500,600,700,800,900,{v:1000, f:'1000+'}]},
         vAxis: {
             title: 'Players',
-            titleTextStyle: {color: accentColor},
-            textStyle: {color: accentColor},
+            titleTextStyle: {color: textColor},
+            textStyle: {color: textColor},
             baselineColor:baseColor,
             gridlines: {color:statsBackground},
             viewWindow:{min:0}
@@ -290,7 +290,7 @@ function drawChartPlaythrough(chartData, parentEl)
             baselineColor:baseColor,
             gridlines: {color:statsBackground},
             ticks: [{v:0, f:'NG'},{v:1, f:'NG+'},{v:2, f:'NG+2'},{v:3, f:'NG+3'},{v:4, f:'NG+4'},{v:5, f:'NG+5'},{v:6, f:'NG+6'},{v:7, f:'NG+7'}],
-            textStyle: {color: accentColor}
+            textStyle: {color: textColor}
         },
         legend: {position: 'none'},
         //enableInteractivity:'false',
@@ -328,7 +328,7 @@ function drawChartProgress(chartData, parentEl)
             baselineColor:baseColor,
             gridlines: {color:statsBackground},
             ticks: [{v:0, f:' '},{v:1, f:'Asylum Demon'},{v:2, f:'1st Bell'},{v:3, f:'2nd Bell'},{v:4, f:"Sen\'s Fortress"},{v:5, f:'Anor Londo'},{v:6, f:'1/4 Lord Souls'},{v:7, f:'2/4 Lord Souls'}, {v:8, f:'3/4 Lord Souls'}, {v:9, f:'4/4 Lord Souls'}],
-            textStyle: {color: accentColor},
+            textStyle: {color: textColor},
             slantedText: true,
             slantedTextAngle: 45
         },
@@ -354,7 +354,7 @@ function drawChartOptional(chartData, parentEl)
         width:chonk, height:tall,
         chartArea:extraVertical,
         hAxis: {
-            textStyle: {color: accentColor},
+            textStyle: {color: textColor},
             slantedText: true,
             slantedTextAngle: 45
         },
@@ -389,7 +389,7 @@ function drawChartSmornstein(chartData, parentEl)
         width:chonk, height:tall,
         chartArea:extraVertical,
         hAxis: {
-            textStyle: {color: accentColor},
+            textStyle: {color: textColor},
             slantedText: true,
             slantedTextAngle: 45
         },
