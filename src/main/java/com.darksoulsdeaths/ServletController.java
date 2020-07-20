@@ -99,9 +99,8 @@ public class ServletController extends HttpServlet
                         FileItem file = fileItems.get(0); //TODO:safety!
                         deathsMap =  FileController.getDeathsFromFile(file);
 
-
-                        request.setAttribute("fileData", deathsMap);
-                        request.getRequestDispatcher("/results.jsp").forward(request, response);
+                        response.setContentType("application/JSON");
+                        writer.println(Utilities.mapToJson(deathsMap));
                     }
                     catch (Exception e)
                     {

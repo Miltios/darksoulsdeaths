@@ -32,7 +32,7 @@
                     <form id="saveFile" method="POST" action="cgi-bin/results.py" enctype="multipart/form-data">
                         <input type="file" name="file" id="file" class="inputfile" onchange="updateFileName(this)"/>
                         <label for="file">BROWSE</label>
-                        <input type="submit" id="submit" value="UPLOAD" onclick="document.getElementById('div-loading').style.display = 'block';">
+                        <input type="submit" id="submit" value="UPLOAD" onclick="submitFile(); return false;">
                     </form>
                 </div>
                 <img class="spinner" src="/images/spinner.gif" alt="Uploading..."/>
@@ -172,6 +172,30 @@
         fname = fname[fname.length-1];
 
         displayField.value = fname;
+    }
+    function submitFile()
+    {
+        showLoadingGif();
+        let file = document.getElementById('file').files[0];
+        let formData = new FormData();
+        formData.append('fileData', file);
+        fetch('request/processfile', {method:'POST', body:formData})
+            .then(response => response.json())
+            .then(data =>
+            {
+                console.log(data); //TODO
+                hideLoadingGif();
+            });
+    }
+    function showLoadingGif()
+    {
+        document.getElementsByClassName('spinner')[0].style.display = 'block';
+        document.getElementsByClassName('file-uploader')[0].style.display = 'none';
+    }
+    function hideLoadingGif()
+    {
+        document.getElementsByClassName('spinner')[0].style.display = 'none';
+        document.getElementsByClassName('file-uploader')[0].style.display = 'block';
     }
 </script>
 </body>
