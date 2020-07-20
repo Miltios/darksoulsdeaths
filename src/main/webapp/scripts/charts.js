@@ -14,9 +14,10 @@ var chonk = 540;
 var tall = 221;
 var noMargin = {width:'490', height:'171'}; /*set chart width/height to (chonk - Y axis size) and (tall - X axis size) to remove margin/padding*/
 var extraVertical = {width:'490', height:'100'};
-var accentColor = '#e4e4e4';
+var accentColor = '#ebc38b';
 var statsBackground = '#5c5c5c';
 var baseColor = '#9a9a9a';
+var textColor = '#e4e4e4';
 var titleADPP = 'Average Deaths per Playthrough for All Players: ';
 
 //TODO:specify default chart dimensions, colors, etc.
@@ -35,9 +36,9 @@ titleDeaths = "Average Total Deaths for All Players: " + averageDeaths;
     {
         yourStats[i].style.display = "block";
     }
-    fname = 'Arial';
-    fsize = '15';
-    fcolor = '#CCBB00';
+    fname = 'Garamond';
+    fsize = '16';
+    fcolor = '#ebc38b';
 }
 else // Tweak title wording and change the remaining h2 elements to match the google chart headers
 {
@@ -198,8 +199,8 @@ function drawChartADPP(chartData, parentEl)
         chartArea:noMargin,
         hAxis: {
             title: 'Deaths',
-            titleTextStyle: {color: accentColor},
-            textStyle: {color: accentColor},
+            titleTextStyle: {color: textColor},
+            textStyle: {color: textColor},
             baselineColor:baseColor,
             gridlines: {color:statsBackground},
             viewWindow:{max:1000},
@@ -207,8 +208,8 @@ function drawChartADPP(chartData, parentEl)
         },
         vAxis: {
             title: 'Players',
-            titleTextStyle: {color: accentColor},
-            textStyle: {color: accentColor},
+            titleTextStyle: {color: textColor},
+            textStyle: {color: textColor},
             baselineColor:baseColor,
             gridlines: {color:statsBackground},
             viewWindow:{min:0}
@@ -239,15 +240,15 @@ function drawChartDeaths(chartData, parentEl)
         chartArea:noMargin,
         hAxis: {
             title: 'Deaths',
-            titleTextStyle: {color: accentColor},
-            textStyle: {color: accentColor},
+            titleTextStyle: {color: textColor},
+            textStyle: {color: textColor},
             baselineColor:baseColor,
             gridlines: {color:statsBackground},
             ticks: [0,100,200,300,400,500,600,700,800,900,{v:1000, f:'1000+'}]},
         vAxis: {
             title: 'Players',
-            titleTextStyle: {color: accentColor},
-            textStyle: {color: accentColor},
+            titleTextStyle: {color: textColor},
+            textStyle: {color: textColor},
             baselineColor:baseColor,
             gridlines: {color:statsBackground},
             viewWindow:{min:0}
@@ -279,8 +280,8 @@ function drawChartPlaythrough(chartData, parentEl)
         chartArea:noMargin,
         vAxis: {
             title:"% of players completed",
-            titleTextStyle: {color: accentColor},
-            textStyle: {color: accentColor},
+            titleTextStyle: {color: textColor},
+            textStyle: {color: textColor},
             baselineColor:baseColor,
             gridlines: {color:statsBackground},
             viewWindow:{min:0}
@@ -289,7 +290,7 @@ function drawChartPlaythrough(chartData, parentEl)
             baselineColor:baseColor,
             gridlines: {color:statsBackground},
             ticks: [{v:0, f:'NG'},{v:1, f:'NG+'},{v:2, f:'NG+2'},{v:3, f:'NG+3'},{v:4, f:'NG+4'},{v:5, f:'NG+5'},{v:6, f:'NG+6'},{v:7, f:'NG+7'}],
-            textStyle: {color: accentColor}
+            textStyle: {color: textColor}
         },
         legend: {position: 'none'},
         //enableInteractivity:'false',
@@ -317,8 +318,8 @@ function drawChartProgress(chartData, parentEl)
         chartArea:extraVertical,
         vAxis: {
             title:"% of players completed",
-            titleTextStyle: {color: accentColor},
-            textStyle: {color: accentColor},
+            titleTextStyle: {color: textColor},
+            textStyle: {color: textColor},
             baselineColor:baseColor,
             gridlines: {color:statsBackground},
             viewWindow:{min:0}
@@ -327,7 +328,7 @@ function drawChartProgress(chartData, parentEl)
             baselineColor:baseColor,
             gridlines: {color:statsBackground},
             ticks: [{v:0, f:' '},{v:1, f:'Asylum Demon'},{v:2, f:'1st Bell'},{v:3, f:'2nd Bell'},{v:4, f:"Sen\'s Fortress"},{v:5, f:'Anor Londo'},{v:6, f:'1/4 Lord Souls'},{v:7, f:'2/4 Lord Souls'}, {v:8, f:'3/4 Lord Souls'}, {v:9, f:'4/4 Lord Souls'}],
-            textStyle: {color: accentColor},
+            textStyle: {color: textColor},
             slantedText: true,
             slantedTextAngle: 45
         },
@@ -353,14 +354,14 @@ function drawChartOptional(chartData, parentEl)
         width:chonk, height:tall,
         chartArea:extraVertical,
         hAxis: {
-            textStyle: {color: accentColor},
+            textStyle: {color: textColor},
             slantedText: true,
             slantedTextAngle: 45
         },
         vAxis: {
             title: '% of players completed',
-            titleTextStyle: {color:accentColor},
-            textStyle: {color:accentColor},
+            titleTextStyle: {color: textColor},
+            textStyle: {color: textColor},
             baselineColor: baseColor,
             gridlines: {color:statsBackground},
             viewWindow:{min:0}
@@ -388,14 +389,14 @@ function drawChartSmornstein(chartData, parentEl)
         width:chonk, height:tall,
         chartArea:extraVertical,
         hAxis: {
-            textStyle: {color: accentColor},
+            textStyle: {color: textColor},
             slantedText: true,
             slantedTextAngle: 45
         },
         vAxis: {
             title: 'Votes',
-            titleTextStyle: {color:accentColor},
-            textStyle: {color:accentColor},
+            titleTextStyle: {color: textColor},
+            textStyle: {color: textColor},
             baselineColor: baseColor,
             gridlines: {color:statsBackground},
             viewWindow:{min:0}
