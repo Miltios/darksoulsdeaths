@@ -47,6 +47,9 @@
                     The PC version's save files can be found in <b>Documents/NBGI/DarkSouls/[Your name]</b>. If you have an idea on how to make this work for consoles, <a href="/about.html#contact">let us know</a>.
                 </div>
             </div>
+            <div id="contentResults">
+                <table id="resultsTable"></table>
+            </div>
             <div id="contentFaq">
                 <span class="uppercase">FREQUENTLY ASKED QUESTIONS
                 <br><br>
@@ -192,6 +195,7 @@
             {
                 console.log(data); //TODO
                 hideLoadingGif();
+                renderResults(data);
             });
     }
     function showLoadingGif()
@@ -203,6 +207,28 @@
     {
         document.getElementsByClassName('spinner')[0].style.display = 'none';
         document.getElementsByClassName('file-uploader')[0].style.display = 'block';
+    }
+    function renderResults(data)
+    {
+        //TODO: null case
+        let table = document.getElementById('resultsTable');
+        table.innerHTML = '';
+        for(charname in data)
+        {
+            let rowEl = document.createElement('tr');
+            let nameEl = document.createElement('td');
+            nameEl.innerHTML = 'Character: ' + charname;
+            let deathsEl = document.createElement('td');
+            deathsEl.innerHTML = 'Total deaths: ' + data[charname];
+            let buttonEl = document.createElement('input');
+            buttonEl.setAttribute('value', 'Stats for this character');
+
+            rowEl.appendChild(nameEl);
+            rowEl.appendChild(deathsEl);
+            rowEl.appendChild(buttonEl);
+
+            table.appendChild(rowEl);
+        }
     }
 </script>
 </body>
