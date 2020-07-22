@@ -73,25 +73,52 @@ body
 /*hiding contents of pages that are not currently in use*/
 #wrapper.nav-about #contentFaq,
 #wrapper.nav-about #contentHome,
-#wrapper.nav-about #contentStats
+#wrapper.nav-about #contentStats,
+#wrapper.nav-about #contentResults,
+#wrapper.nav-about #contentSubmit
 {
     display: none;
 }
 #wrapper.nav-faq #contentAbout,
 #wrapper.nav-faq #contentHome,
-#wrapper.nav-faq #contentStats
+#wrapper.nav-faq #contentStats,
+#wrapper.nav-faq #contentResults,
+#wrapper.nav-faq #contentSubmit
 {
     display: none;
 }
 #wrapper.nav-home #contentAbout,
 #wrapper.nav-home #contentFaq,
 #wrapper.nav-home #contentStats
+#wrapper.nav-home #contentResults,
+#wrapper.nav-home #contentSubmit
+{
+    display: none;
+}
+#wrapper.nav-results #contentAbout,
+#wrapper.nav-results #contentFaq,
+#wrapper.nav-results #contentHome,
+#wrapper.nav-results #contentStats,
+#wrapper.nav-results #contentSubmit
+
 {
     display: none;
 }
 #wrapper.nav-stats #contentAbout,
 #wrapper.nav-stats #contentFaq,
-#wrapper.nav-stats #contentHome
+#wrapper.nav-stats #contentHome,
+#wrapper.nav-stats #contentResults,
+#wrapper.nav-stats #contentSubmit
+
+{
+    display: none;
+}
+#wrapper.nav-submit #contentAbout,
+#wrapper.nav-submit #contentFaq,
+#wrapper.nav-submit #contentHome,
+#wrapper.nav-submit #contentResults,
+#wrapper.nav-submit #contentStats
+
 {
     display: none;
 }
