@@ -60,7 +60,7 @@ body
     background-image: url(../images/you-died.png),
                        url(../images/background-stats.png);
 }
-#wrapper.nav-stats
+#wrapper.nav-submit
 {
     background-image: url(../images/background-submit.png);
 }
