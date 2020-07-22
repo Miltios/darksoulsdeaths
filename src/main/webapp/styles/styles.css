@@ -356,14 +356,11 @@ select
     display: block;
     width: 250px;
     cursor: pointer;
+    transition: 0.2s;
 }
 .checkbox-buttons:not(:checked)
 {
     background-color: black;
-    transition: 0.2s;
-}
-.checkbox-buttons:not(:hover)
-{
     transition: 0.2s;
 }
 .checkbox-buttons:hover
