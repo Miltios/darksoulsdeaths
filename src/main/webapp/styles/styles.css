@@ -362,6 +362,15 @@ select
     background-color: black;
     transition: 0.2s;
 }
+.checkbox-buttons:not(:hover)
+{
+    transition: 0.2s;
+}
+.checkbox-buttons:hover
+{
+    box-shadow: 0 0 0px 1.5px white inset;
+    transition: 0.2s;
+}
 #ContentSubmit [type="checkbox"]:checked+.checkbox-buttons
 {
     background-color: #4f1f05;
