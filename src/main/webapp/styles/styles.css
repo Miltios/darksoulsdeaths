@@ -62,7 +62,8 @@ body
 }
 #wrapper.nav-submit
 {
-    background-image: url(../images/background-submit.png);
+    background-image: url(../images/YouDied-dummy.png),
+                       url(../images/background-submit.png);
 }
 /*white outline on navlink of current page while not being hovered*/
 #wrapper.nav-about #navAbout:not(:hover),
