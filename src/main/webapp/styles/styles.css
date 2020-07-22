@@ -345,16 +345,21 @@ select
     margin: 10px auto;
     border-radius: 3px;
     border-color: #e4e4e4;
+    border-style: solid;
+    border-width: 1px;
+    padding: 4px;
+    display: block;
+    width: 250px;
     cursor: pointer;
+}
+.checkbox-buttons:not(:checked)
+{
+    background-color: black;
 }
 .checkbox-buttons:checked
 {
     background-color: #4f1f05;
     transition: 0.3s;
-}
-.checkbox-buttons:not(:checked)
-{
-    background-color: black;
 }
 .copyright-notice
 {
