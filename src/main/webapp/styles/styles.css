@@ -60,6 +60,10 @@ body
     background-image: url(../images/you-died.png),
                        url(../images/background-stats.png);
 }
+#wrapper.nav-stats
+{
+    background-image: url(../images/background-submit.png);
+}
 /*white outline on navlink of current page while not being hovered*/
 #wrapper.nav-about #navAbout:not(:hover),
 #wrapper.nav-faq #navFaq:not(:hover),
