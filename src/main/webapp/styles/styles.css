@@ -311,6 +311,31 @@ line-height: 29px;
 {
     padding: 19px 0 0 0;
 }
+.char-data
+{
+    display: inline-flex;
+}
+.char-data-info
+{
+    width: 150px;
+}
+hr
+{
+    width: 35%;
+    color: #e4e4e4;
+    margin: 20px auto;
+}
+select
+{
+    display: block;
+    background-color:black;
+    color: #e4e4e4;
+    margin: 10px auto;
+    border-radius: 3px;
+    border-color: #e4e4e4;
+    font-family: Garamond,serif;
+    font-size: 16px;
+}
 .copyright-notice
 {
     height: 53px;

@@ -51,14 +51,19 @@
                 <table id="resultsTable"></table>
             </div>
             <div id="contentSubmit">
-                <table class="table-char-data">
-                    <tr>
-                        <td>Character: <span id="spanCharName"></span></td>
-                        <td>Total deaths: <span id="spanCharDeaths"></span></td>
-                    </tr>
-                </table>
+                <div class="char-data">
+                    <div class="char-data-info">
+                        <span class="uppercase">CHARACTER</span><br>
+                        <span id="spanCharName"></span>
+                    </div>
+                    <div class="char-data-info">
+                        <span class="uppercase">TOTAL DEATHS</span><br>
+                        <span id="spanCharDeaths"></span>
+                    </div>
+                </div>
+                <hr>
                 <form name="playerInfo">
-                    <p>Help us make pretty graphs!  Fill in a little extra information about your progress so we can make the stats page more useful and show you how you stack up against everyone else.  Don't worry; everything is anonymous, so nobody will have to know how much you suck at this game.</p>
+                    <p><b>Help us make pretty graphs!</b> Fill in a little extra information about your progress so we can make the stats page more useful and show you how you stack up against everyone else.  Don't worry; everything is anonymous, so nobody will have to know how much you suck at this game.</p>
                     <div class="extra-info">
                         <label for="playthrough">What's the highest <a href="http://darksouls.wikidot.com/new-game-plus" class="spoiler-link">playthrough</a> you've COMPLETED with this character?</label>
                         <select id="playthrough" name="playthrough" >
@@ -72,7 +77,7 @@
                             <option value="7">New game +6</option>
                             <option value="8">I have beaten NG+7 or higher.  Please send help.</option>
                         </select>
-                        <p></p>
+                        <br>
                         <label for="progress">What's the furthest <a href="http://darksouls.wikidot.com/areas" class="spoiler-link">area</a> you've COMPLETED with this character in your latest playthrough?</label>
                         <select id="progress" name="progress" >
                             <option value="0">None</option>
@@ -86,8 +91,8 @@
                             <option value="0.80">3/4 Lord Souls</option>
                             <option value="0.95">4/4 Lord Souls</option>
                         </select>
+                        <br>
                         <p>Check all of the optional areas that you've COMPLETED:</p>
-
                         <input type="checkbox" id="optional-shitholes" name="optional-shitholes" />
                         <label for="optional-shitholes">Lower Undead Burg/Depths</label>
 
@@ -103,7 +108,8 @@
                         <input type="checkbox" id="optional-manus" name="optional-manus" />
                         <label for="optional-manus">Additional Content (beat Manus)</label>
                         <br />
-                        <p>What is your favorite nickname for Ornstein &amp; Smough?</p>
+                        <br>
+                        <label for="smornstein">What is your favorite nickname for Ornstein &amp; Smough?</label>
                         <select id="smornstein" name="smornstein" >
                             <option value="0">None</option>
                             <option value="1">Anor Londo Attorneys</option>
@@ -126,7 +132,7 @@
                             <option value="18">Thunder &amp; Thighs</option>
                             <option value="19">Timon &amp; Pumba</option>
                         </select>
-                    </div>
+                    </div><br>
                     <input type="hidden" name="name" value="<%=name%>" />
                     <input type="hidden" name="deaths" value="<%=deaths%>" />
                     <button onclick="submitCharData(this.form);return false;">Enough dicking around. How'd I do?</button>
