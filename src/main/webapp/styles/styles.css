@@ -336,6 +336,26 @@ select
     font-family: Garamond,serif;
     font-size: 16px;
 }
+#ContentSubmit [type="checkbox"]
+{
+    display:none;
+}
+.checkbox-buttons
+{
+    margin: 10px auto;
+    border-radius: 3px;
+    border-color: #e4e4e4;
+    cursor: pointer;
+}
+.checkbox-buttons:checked
+{
+    background-color: #4f1f05;
+    transition: 0.3s;
+}
+.checkbox-buttons:not(:checked)
+{
+    background-color: black;
+}
 .copyright-notice
 {
     height: 53px;
