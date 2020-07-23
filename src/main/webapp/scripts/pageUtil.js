@@ -38,6 +38,8 @@ function navigate(page)
     {
         console.error('Page name "' + page + '" not found!');
     }
+
+    document.getElementById('contentBody').scroll(0,0); //scroll back to top
 }
 function updateFileName(fileInput)
 {
