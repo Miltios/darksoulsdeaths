@@ -101,7 +101,7 @@ function renderResults(data)
 
         let buttonEl = document.createElement('button');
         buttonEl.setAttribute('onclick', 'renderSubmit("' + charname + '", ' + data[charname] + ')');
-        button.setAttribute('class', 'char-data-button');
+        buttonEl.setAttribute('class', 'char-data-button');
         buttonEl.innerHTML = 'Stats for this character';
 
         rowEl.appendChild(nameEl);
