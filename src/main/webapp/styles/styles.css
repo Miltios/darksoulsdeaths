@@ -355,6 +355,18 @@ line-height: 29px;
     width: 130px;
     font-size: 16px;
 }
+.selected-char
+{
+    display: inline-flex;
+}
+.selected-char-info
+{
+    width: 130px;
+    margin: 0 10px;
+    font-family: Garamond,serif;
+    color: #e4e4e4;
+    text-align: center;
+}
 hr
 {
     width: 35%;
