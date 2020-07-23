@@ -47,7 +47,7 @@ body
 }
 #wrapper.nav-faq
 {
-    background-image: url(../images/you-died.png),
+    background-image: url(../images/YouDied-dummy.png),
                        url(../images/background-faq.png);
 }
 #wrapper.nav-results
