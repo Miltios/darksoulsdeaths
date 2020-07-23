@@ -84,7 +84,7 @@ function hideLoadingGif()
 function renderResults(data)
 {
     //TODO: null case
-    let container = document.getElementById('contentResults');
+    let container = document.getElementById('resultsTable');
     container.innerHTML = '';
     let keys = Object.keys(data);
     for(let i=0; i<keys.length; i++)
@@ -95,11 +95,11 @@ function renderResults(data)
 
         let nameEl = document.createElement('div');
         nameEl.setAttribute('class', 'char-data-info');
-        nameEl.innerHTML = 'Character: ' + charname;
+        nameEl.innerHTML = charname;
 
         let deathsEl = document.createElement('div');
         deathsEl.setAttribute('class', 'char-data-info');
-        deathsEl.innerHTML = 'Total deaths: ' + data[charname];
+        deathsEl.innerHTML = data[charname];
 
         let buttonEl = document.createElement('button');
         buttonEl.setAttribute('onclick', 'renderSubmit("' + charname + '", ' + data[charname] + ')');
