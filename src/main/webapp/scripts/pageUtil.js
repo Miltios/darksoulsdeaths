@@ -86,18 +86,35 @@ function renderResults(data)
     //TODO: null case
     let container = document.getElementById('resultsTable');
     container.innerHTML = '';
+
+    let headerEl = document.createElement('tr');
+    headerEl.setAttribute('class', 'char-data');
+    let nameHeaderEl = document.createElement('td');
+    nameHeaderEl.setAttribute('class', 'char-data-header header-visible uppercase');
+    nameHeaderEl.innerHTML = 'Character';
+    let deathsHeaderEl = document.createElement('td');
+    deathsHeaderEl.setAttribute('class', 'char-data-header header-visible uppercase');
+    deathsHeaderEl.innerHTML = 'Deaths';
+    let blankHeaderEl = document.createElement('td');
+    blankHeaderEl.setAttribute('class', 'char-data-header header-invisible uppercase');
+
+    headerEl.appendChild(nameHeaderEl);
+    headerEl.appendChild(deathsHeaderEl);
+    headerEl.appendChild(blankHeaderEl);
+    container.appendChild(headerEl);
+
     let keys = Object.keys(data);
     for(let i=0; i<keys.length; i++)
     {
         let charname = keys[i];
-        let rowEl = document.createElement('div');
+        let rowEl = document.createElement('tr');
         rowEl.setAttribute('class', 'char-data');
 
-        let nameEl = document.createElement('div');
+        let nameEl = document.createElement('td');
         nameEl.setAttribute('class', 'char-data-info');
         nameEl.innerHTML = charname;
 
-        let deathsEl = document.createElement('div');
+        let deathsEl = document.createElement('td');
         deathsEl.setAttribute('class', 'char-data-info');
         deathsEl.innerHTML = data[charname];
 
@@ -106,16 +123,26 @@ function renderResults(data)
         buttonEl.setAttribute('class', 'char-data-button');
         buttonEl.innerHTML = 'Stats for this character';
 
+        let buttonTdEl = document.createElement('td');
+        buttonTdEl.setAttribute('class', 'char-data-info');
+        buttonTdEl.appendChild(buttonEl);
+
         rowEl.appendChild(nameEl);
         rowEl.appendChild(deathsEl);
-        rowEl.appendChild(buttonEl);
+        rowEl.appendChild(buttonTdEl);
 
         container.appendChild(rowEl);
 
         if(i<keys.length-1)
         {
+            let hrRow = document.createElement('tr');
+            let hrTd = document.createElement('td');
+            hrTd.setAttribute('colspan', '3');
             let hr = document.createElement('hr');
-            container.appendChild(hr);
+
+            hrTd.appendChild(hr);
+            hrRow.appendChild(hrTd);
+            container.appendChild(hrRow);
         }
     }
 
