@@ -86,8 +86,10 @@ function renderResults(data)
     //TODO: null case
     let container = document.getElementById('contentResults');
     container.innerHTML = '';
-    for(charname in data)
+    let keys = Object.keys(data);
+    for(let i=0; i<keys.length; i++)
     {
+        let charname = keys[i];
         let rowEl = document.createElement('div');
         rowEl.setAttribute('class', 'char-data');
 
@@ -109,6 +111,12 @@ function renderResults(data)
         rowEl.appendChild(buttonEl);
 
         container.appendChild(rowEl);
+
+        if(i<keys.length-1)
+        {
+            let hr = document.createElement('hr');
+            container.appendChild(hr);
+        }
     }
 
     navigate('results');
