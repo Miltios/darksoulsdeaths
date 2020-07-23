@@ -320,10 +320,11 @@ line-height: 29px;
 #resultsHeader
 {
     display: inline-flex;
+    margin-bottom: 20px;
 }
 .char-data-header
 {
-    width: 100px;
+    width: 130px;
     height: 30px;
     margin: 0 10px;
 }
@@ -332,15 +333,25 @@ line-height: 29px;
     background-color: #e4e4e4;
     color: black;
     border-radius: 3px;
-    line-height: 25px;
+    line-height: 30px;
 }
 .char-data
 {
     display: inline-flex;
+    min-height: 30px;
 }
 .char-data-info
 {
-    width: 150px;
+    width: 130px;
+    margin: 0 10px;
+    font-family: Garamond,serif;
+}
+.char-data-button
+{
+    font-family: Garamond,serif;
+    width: 130px;
+    font-size: 16px;
+    margin: 0 10px;
 }
 hr
 {
