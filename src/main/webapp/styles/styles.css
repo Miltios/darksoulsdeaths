@@ -50,6 +50,7 @@ body
     background-image: url(../images/YouDied-dummy.png),
                        url(../images/background-faq.png);
 }
+/*makes the Home page keep the Results page BG image permanently after file has been submitted*/
 #wrapper.nav-results,
 .has-results #wrapper.nav-home
 {
@@ -318,11 +319,11 @@ line-height: 29px;
 {
     padding: 19px 0 0 0;
 }
-#contentResults hr
+/*#contentResults hr
 {
     margin: 10px auto;
     width: 43%;
-}
+}*/
 #resultsTable
 {
     margin:0 auto;
@@ -385,6 +386,7 @@ select
     font-family: Garamond,serif;
     font-size: 16px;
 }
+/*Hiding checkbox buttons on Submit page and styling text so that it works as a button*/
 #ContentSubmit [type="checkbox"]
 {
     display:none;
