@@ -148,6 +148,8 @@ function renderResults(data)
         }
     }
 
+    document.body.classList.add('has-results');
+
     navigate('results');
 }
 function renderSubmit(charname, deaths)

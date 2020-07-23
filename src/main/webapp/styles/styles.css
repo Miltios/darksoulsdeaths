@@ -50,7 +50,8 @@ body
     background-image: url(../images/YouDied-dummy.png),
                        url(../images/background-faq.png);
 }
-#wrapper.nav-results
+#wrapper.nav-results,
+.has-results #wrapper.nav-home
 {
     background-image: url(../images/you-died.png),
                        url(../images/background-results.png);
