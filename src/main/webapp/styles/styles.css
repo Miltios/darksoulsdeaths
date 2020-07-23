@@ -231,6 +231,7 @@ html {
 .uppercase
 {
     font-family: Marcellus SC;
+    text-transform: uppercase;
 }
 .description-top
 {
@@ -315,6 +316,23 @@ line-height: 29px;
 .description-bottom
 {
     padding: 19px 0 0 0;
+}
+#resultsHeader
+{
+    display: inline-flex;
+}
+.char-data-header
+{
+    width: 100px;
+    height: 30px;
+    margin: 0 10px;
+}
+.header-visible
+{
+    background-color: #e4e4e4;
+    color: black;
+    border-radius: 3px;
+    line-height: 25px;
 }
 .char-data
 {
