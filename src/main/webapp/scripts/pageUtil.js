@@ -96,8 +96,8 @@ function renderResults(data)
         nameEl.innerHTML = 'Character: ' + charname;
 
         let deathsEl = document.createElement('div');
-        nameEl.setAttribute('class', 'char-data-info');
-        nameEl.innerHTML = 'Total deaths: ' + data[charname];
+        deathsEl.setAttribute('class', 'char-data-info');
+        deathsEl.innerHTML = 'Total deaths: ' + data[charname];
 
         let buttonEl = document.createElement('button');
         buttonEl.setAttribute('onclick', 'renderSubmit("' + charname + '", ' + data[charname] + ')');
