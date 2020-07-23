@@ -415,11 +415,13 @@ select
 {
     box-shadow: 0 0 0px 1.5px #ff8763 inset;
     transition: 0.2s;
+    border-color: #ff8763;
 }
 #ContentSubmit [type="checkbox"]:checked+.checkbox-buttons
 {
     background-color: #4f1f05;
     transition: 0.2s;
+    border-color: #4f1f05;
 }
 .button-general
 {
