@@ -37,7 +37,7 @@ body
     background-repeat: no-repeat;
     background-position: center;
     transition: 0.5s;
-    background-image: url(../images/you-died.png),
+    background-image: url(../images/YouDied-dummy.png),
                        url(../images/background-home.png);
 }
 #wrapper.nav-about
