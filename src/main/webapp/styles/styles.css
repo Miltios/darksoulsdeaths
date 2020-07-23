@@ -95,14 +95,14 @@ body
 #wrapper.nav-home #contentAbout,
 #wrapper.nav-home #contentFaq,
 #wrapper.nav-home #contentStats,
-#wrapper.nav-home #contentResults,
+/*#wrapper.nav-home #contentResults,*/ /*we actually do want this to show up on the home page*/
 #wrapper.nav-home #contentSubmit
 {
     display: none;
 }
 #wrapper.nav-results #contentAbout,
 #wrapper.nav-results #contentFaq,
-#wrapper.nav-results #contentHome,
+/*#wrapper.nav-results #contentHome,*/ /*likewise, this should show up on results*/
 #wrapper.nav-results #contentStats,
 #wrapper.nav-results #contentSubmit
 
