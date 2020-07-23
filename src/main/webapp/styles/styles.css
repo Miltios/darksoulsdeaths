@@ -319,7 +319,7 @@ line-height: 29px;
 {
     padding: 19px 0 0 0;
 }
-#contentResults:not(.has-results)
+body:not(.has-results) #contentResults
 {
     display: none;
 }
