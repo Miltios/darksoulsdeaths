@@ -344,6 +344,7 @@ body:not(.has-results) #contentResults
     height: 30px;
     margin: 0 10px;
     text-align: center;
+    color: #e4e4e4;
 }
 .char-data-info
 {
