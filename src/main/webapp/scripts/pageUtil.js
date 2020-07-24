@@ -92,18 +92,28 @@ function renderResults(data)
     let headerEl = document.createElement('tr');
     headerEl.setAttribute('class', 'char-data');
     let nameHeaderEl = document.createElement('td');
-    nameHeaderEl.setAttribute('class', 'char-data-header header-visible uppercase');
+    nameHeaderEl.setAttribute('class', 'char-data-header uppercase');
     nameHeaderEl.innerHTML = 'Character';
     let deathsHeaderEl = document.createElement('td');
-    deathsHeaderEl.setAttribute('class', 'char-data-header header-visible uppercase');
+    deathsHeaderEl.setAttribute('class', 'char-data-header uppercase');
     deathsHeaderEl.innerHTML = 'Deaths';
     let blankHeaderEl = document.createElement('td');
-    blankHeaderEl.setAttribute('class', 'char-data-header header-invisible uppercase');
+    blankHeaderEl.setAttribute('class', 'char-data-header uppercase');
+    blankHeaderEl.innerHTML = 'Add Stats';
 
     headerEl.appendChild(nameHeaderEl);
     headerEl.appendChild(deathsHeaderEl);
     headerEl.appendChild(blankHeaderEl);
     container.appendChild(headerEl);
+
+    let hrRow = document.createElement('tr');
+    let hrTd = document.createElement('td');
+    hrTd.setAttribute('colspan', '3');
+    let hr = document.createElement('hr');
+
+    hrTd.appendChild(hr);
+    hrRow.appendChild(hrTd);
+    container.appendChild(hrRow);
 
     let keys = Object.keys(data);
     for(let i=0; i<keys.length; i++)
@@ -122,8 +132,8 @@ function renderResults(data)
 
         let buttonEl = document.createElement('button');
         buttonEl.setAttribute('onclick', 'renderSubmit("' + charname + '", ' + data[charname] + ')');
-        buttonEl.setAttribute('class', 'char-data-button');
-        buttonEl.innerHTML = 'Stats for this character';
+        buttonEl.setAttribute('class', 'button-general uppercase');
+        buttonEl.innerHTML = 'Add &nbsp;\u279D';
 
         let buttonTdEl = document.createElement('td');
         buttonTdEl.setAttribute('class', 'char-data-info');
@@ -134,18 +144,6 @@ function renderResults(data)
         rowEl.appendChild(buttonTdEl);
 
         container.appendChild(rowEl);
-
-        if(i<keys.length-1)
-        {
-            let hrRow = document.createElement('tr');
-            let hrTd = document.createElement('td');
-            hrTd.setAttribute('colspan', '3');
-            let hr = document.createElement('hr');
-
-            hrTd.appendChild(hr);
-            hrRow.appendChild(hrTd);
-            container.appendChild(hrRow);
-        }
     }
 
     document.body.classList.add('has-results');
