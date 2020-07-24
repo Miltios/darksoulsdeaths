@@ -326,11 +326,16 @@ body:not(.has-results) #contentResults
 #resultsTable hr
 {
     margin: 10px auto;
+    width: 100%;
 }
 #resultsTable
 {
     margin:0 auto;
     border-spacing: 20px 5px;
+    font-size: 16px;
+}
+#resultsTable .button-general
+{
     font-size: 16px;
 }
 .char-data-header
@@ -339,12 +344,6 @@ body:not(.has-results) #contentResults
     height: 30px;
     margin: 0 10px;
     text-align: center;
-}
-.header-visible
-{
-    background-color: #e4e4e4;
-    color: black;
-    border-radius: 3px;
 }
 .char-data-info
 {
