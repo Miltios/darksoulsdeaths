@@ -83,6 +83,18 @@ function hideLoadingGif()
     document.getElementsByClassName('spinner')[0].style.display = 'none';
     document.getElementsByClassName('file-uploader')[0].style.display = 'block';
 }
+function showSubmitLoadingGif()
+{
+    //TODO
+    /*document.getElementsByClassName('spinner')[0].style.display = 'initial';
+    document.getElementsByClassName('file-uploader')[0].style.display = 'none';*/
+}
+function hideSubmitLoadingGif()
+{
+    //TODO
+    /*document.getElementsByClassName('spinner')[0].style.display = 'none';
+    document.getElementsByClassName('file-uploader')[0].style.display = 'block';*/
+}
 function renderResults(data)
 {
     //TODO: null case
@@ -161,9 +173,51 @@ function renderSubmit(charname, deaths)
 function submitCharData(form)
 {
     console.log('submitCharData'); //TODO:DEBUG
+    showSubmitLoadingGif();
     //TODO:send data to DB
+    let json = {
+        //TODO: analytics ID will also go here?
+        'name': document.getElementById('spanCharName').innerHTML,
+        'deaths': parseInt(document.getElementById('spanCharDeaths').innerHTML),
+        'playthrough': form.elements['playthrough'].value,
+        'progress': form.elements['progress'].value,
+        'optionalShitholes': form.elements['optionalShitholes'].checked,
+        'optionalDragonbros': form.elements['optionalDragonbros'].checked,
+        'optionalAsylum': form.elements['optionalAsylum'].checked,
+        'optionalPaintedworld': form.elements['optionalPaintedworld'].checked,
+        'optionalManus': form.elements['optionalManus'].checked,
+        'smornstein': form.elements['smornstein'].value
+    }
+    let kvps = [];
+    for(let key in json)
+    {
+        kvps.push(encodeURIComponent(key) + '=' + encodeURIComponent(json[key]));
+    }
+    let data = kvps.join('&').replace( /%20/g, '+' );
+
+    fetch('request/submitchardata', {method:'POST', headers:{'content-type':'application/x-www-form-urlencoded'}, body:data})
+        .then(response => response.json())
+        .then(data =>
+        {
+            console.log(data); //TODO
+            renderStats(data, function()
+            {
+                //TODO: callback function for when stats page is done
+                hideSubmitLoadingGif();
+                navigate('stats');
+            });
+        });
+
+
+
     //TODO:only navigate to stats page after server responds?
     //TODO:render user data in stats page along side aggregate results
-
-    navigate('stats');
+}
+function renderStats(data, callback)
+{
+    //TODO
+    if(typeof callback === 'function')
+    {
+        callback();
+    }
 }

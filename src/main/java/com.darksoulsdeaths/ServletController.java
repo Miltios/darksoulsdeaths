@@ -108,7 +108,7 @@ public class ServletController extends HttpServlet
                         writer.println("An unexpected error occurred.");
                     }
                     break;
-                case "submit":
+                /*case "submit":
                     Map<String,Object> charData;
                     try
                     {
@@ -123,9 +123,9 @@ public class ServletController extends HttpServlet
                         e.printStackTrace();
                         writer.println("An unexpected error occurred.");
                     }
-                    break;
-                case "stats":
-                    //take the submitted form data and put it in the DB, then forward the user to the regular /stats page (we are currently in /request/stats)
+                    break;*/
+                case "submitchardata":
+                    //take the submitted form data and put it in the DB, then forward the user to the stats page
                     Map<String,String> data = new HashMap<>();
                     String playerId = request.getParameter("playerid");
                     if(playerId == null)
@@ -137,11 +137,11 @@ public class ServletController extends HttpServlet
                     data.put("deaths", request.getParameter("deaths"));
                     data.put("playthrough", request.getParameter("playthrough"));
                     data.put("progress", request.getParameter("progress"));
-                    data.put("shitholes", "on".equals(request.getParameter("optional-shitholes"))?"true":"false");
-                    data.put("dragonbros", "on".equals(request.getParameter("optional-dragonbros"))?"true":"false");
-                    data.put("asylum", "on".equals(request.getParameter("optional-asylum"))?"true":"false");
-                    data.put("painted", "on".equals(request.getParameter("optional-painted"))?"true":"false");
-                    data.put("manus", "on".equals(request.getParameter("optional-manus"))?"true":"false");
+                    data.put("shitholes", request.getParameter("optionalShitholes"));
+                    data.put("dragonbros", request.getParameter("optionalDragonbros"));
+                    data.put("asylum", request.getParameter("optionalAsylum"));
+                    data.put("painted", request.getParameter("optionalPainted"));
+                    data.put("manus", request.getParameter("optionalManus"));
                     data.put("smornstein", request.getParameter("smornstein"));
 
                     //TODO:DEBUG
@@ -167,7 +167,7 @@ public class ServletController extends HttpServlet
                     //HACK: we want the user actually *on* /stats.jsp rather than just serving them the content from here.
                     //We also need the POST data, which doesn't get included in a regular sendRedirect().
                     response.setStatus(HttpServletResponse.SC_TEMPORARY_REDIRECT);
-                    response.setHeader("Location", "../stats");
+                    response.setHeader("Location", "../stats"); //TODO: send the user back AJAX data rather than redirecting them
                     break;
                 case "resetlimiter":
                     response.setContentType("application/JSON");

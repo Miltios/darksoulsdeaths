@@ -64,7 +64,7 @@
                     </div>
                 </div>
                 <hr>
-                <form name="playerInfo">
+                <form id="playerInfo" name="playerInfo">
                     <p><b>Help us make pretty graphs!</b> Fill in a little extra information about your progress so we can make the stats page more useful and show you how you stack up against everyone else.  Don't worry; everything is anonymous, so nobody will have to know how much you suck at this game.</p>
                     <div class="extra-info">
                         <label for="playthrough">What's the highest <a href="http://darksouls.wikidot.com/new-game-plus" class="spoiler-link">playthrough</a> you've <u>completed</u> with this character?</label>
@@ -133,8 +133,6 @@
                             <option value="19">Timon &amp; Pumba</option>
                         </select>
                     </div><br>
-                    <input type="hidden" name="name" value="<%=name%>" />
-                    <input type="hidden" name="deaths" value="<%=deaths%>" />
                     <button onclick="submitCharData(this.form);return false;" class="uppercase button-general">ENOUGH DICKING AROUND. HOW'D I DO?</button>
                 </form>
             </div>
