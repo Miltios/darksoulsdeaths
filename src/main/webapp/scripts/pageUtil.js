@@ -1,3 +1,16 @@
+let charData = {
+    name:null,
+    deaths:null,
+    playthrough:null,
+    progress:null,
+    optionalShitholes:null,
+    optionalDragonbros:null,
+    optionalAsylum:null,
+    optionalPaintedworld:null,
+    optionalManus:null,
+    smornstein:null
+}
+
 function navigate(page)
 {
     let wrapper = document.getElementById('wrapper');
@@ -164,7 +177,9 @@ function renderResults(data)
 }
 function renderSubmit(charname, deaths)
 {
-    console.log(charname + deaths); //TODO:DEBUG
+    charData.name = charname;
+    charData.deaths = deaths;
+
     document.getElementById('spanCharName').innerHTML = charname;
     document.getElementById('spanCharDeaths').innerHTML = deaths;
 
@@ -174,25 +189,21 @@ function submitCharData(form)
 {
     console.log('submitCharData'); //TODO:DEBUG
     showSubmitLoadingGif();
-    //TODO:send data to DB
-    let json = {
-        //TODO: analytics ID will also go here?
-        'name': document.getElementById('spanCharName').innerHTML,
-        'deaths': parseInt(document.getElementById('spanCharDeaths').innerHTML),
-        'playthrough': form.elements['playthrough'].value,
-        'progress': form.elements['progress'].value,
-        'optionalShitholes': form.elements['optionalShitholes'].checked,
-        'optionalDragonbros': form.elements['optionalDragonbros'].checked,
-        'optionalAsylum': form.elements['optionalAsylum'].checked,
-        'optionalPaintedworld': form.elements['optionalPaintedworld'].checked,
-        'optionalManus': form.elements['optionalManus'].checked,
-        'smornstein': form.elements['smornstein'].value
-    }
+    charData.playthrough = form.elements['playthrough'].value;
+    charData.progress = form.elements['progress'].value;
+    charData.optionalShitholes = form.elements['optionalShitholes'].checked;
+    charData.optionalDragonbros = form.elements['optionalDragonbros'].checked;
+    charData.optionalAsylum = form.elements['optionalAsylum'].checked;
+    charData.optionalPaintedworld = form.elements['optionalPaintedworld'].checked;
+    charData.optionalManus = form.elements['optionalManus'].checked;
+    charData.smornstein = form.elements['smornstein'].value;
+
     let kvps = [];
-    for(let key in json)
+    for(let key in charData)
     {
-        kvps.push(encodeURIComponent(key) + '=' + encodeURIComponent(json[key]));
+        kvps.push(encodeURIComponent(key) + '=' + encodeURIComponent(charData[key]));
     }
+    //TODO:kvps.push(analyticsID, value);
     let data = kvps.join('&').replace( /%20/g, '+' );
 
     fetch('request/submitchardata', {method:'POST', headers:{'content-type':'application/x-www-form-urlencoded'}, body:data})

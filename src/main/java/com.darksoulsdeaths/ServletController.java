@@ -152,22 +152,21 @@ public class ServletController extends HttpServlet
                     }
 
 
-
+                    response.setContentType("application/JSON");
                     if(DataManager.submitCharacter(data))
                     {
-                        System.out.println("success!"); //TODO:DEBUG
+                        System.out.println("Character submitted successfully!"); //TODO:DEBUG
+                        writer.println("{");
+                        writer.println("\"success\":true");
+                        writer.println("}");
                     }
                     else
                     {
-                        System.out.println("failure!"); //TODO:DEBUG
+                        System.out.println("Failed to submit character!"); //TODO:DEBUG
+                        writer.println("{");
+                        writer.println("\"success\":false");
+                        writer.println("}");
                     }
-
-
-
-                    //HACK: we want the user actually *on* /stats.jsp rather than just serving them the content from here.
-                    //We also need the POST data, which doesn't get included in a regular sendRedirect().
-                    response.setStatus(HttpServletResponse.SC_TEMPORARY_REDIRECT);
-                    response.setHeader("Location", "../stats"); //TODO: send the user back AJAX data rather than redirecting them
                     break;
                 case "resetlimiter":
                     response.setContentType("application/JSON");

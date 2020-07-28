@@ -1,12 +1,12 @@
 //TODO: dummy values
 //TODO: let vs var
-var character = 'TempCharacterName';
-var deaths = 999;
-var ADPP = 888;
-var averageDeaths = 777;
-var averageADPP = 666;
-var playthrough = 555;
-var progress = 0.8;
+/*var character = charData.name;
+var deaths = charData.deaths;
+var ADPP = null;
+var playthrough = null;
+var progress = null;*/
+var averageDeaths = 'unknown';
+var averageADPP = 'unknown';
 var fsize = '16'; // Larger font size if the player-specific titles don't show up.
 var fname = 'Marcellus SC'; // Fancier font, same deal.
 var fcolor = '#EEEEEE';
@@ -18,13 +18,12 @@ var accentColor = '#ebc38b';
 var statsBackground = '#5c5c5c';
 var baseColor = '#9a9a9a';
 var textColor = '#e4e4e4';
-var titleADPP = 'Average Deaths per Playthrough for All Players: ';
 
 //TODO:specify default chart dimensions, colors, etc.
 
 //TODO:switches for certain elements to toggle or reformat based on player data. Will need to be tweaked for new page format/IDs once uncommented.
-titleADPP = titleADPP + averageADPP;
-titleDeaths = "Average Total Deaths for All Players: " + averageDeaths;
+var titleADPP = 'Average Deaths per Playthrough for All Players: ' + averageADPP; //TODO
+var titleDeaths = "Average Total Deaths for All Players: " + averageDeaths; //TODO
 /*if(character !== "") // Show how the submitted character compares with global stats.
                                 // Users can still browse global stats without submitting a character,
                                 // in which case player-specific elements won't display.
@@ -92,31 +91,37 @@ document.getElementById('span-progress').innerHTML = progress * 100 + '%';*/
 
 function loadChartData()
 {
-    //TODO: gate function for all charts, or just callback each one individually?
-    fetch('/request/getadppcounts')
+    //TODO: should probably have a gate function for all of this rather than ping-ponging it
+    fetch('/request/getdeathandadppaverages')
         .then(response => response.json())
-        .then(data => drawChartADPP(formatNumericData(data), document.getElementById('chartADPP')));
+        .then(data => {
+            titleDeaths = "Average Total Deaths for All Players: " + data.deaths;
+            titleADPP = 'Average Deaths per Playthrough for All Players: ' + data.adpp;
 
-    fetch('/request/getdeathcounts')
-        .then(response => response.json())
-        .then(data => drawChartDeaths(formatNumericData(data), document.getElementById('chartDeaths')));
+            fetch('/request/getadppcounts')
+                .then(response => response.json())
+                .then(data => drawChartADPP(formatNumericData(data), document.getElementById('chartADPP')));
 
-    fetch('/request/getplaythroughcounts')
-        .then(response => response.json())
-        .then(data => drawChartPlaythrough(formatNumericData(data), document.getElementById('chartPlaythrough')));
+            fetch('/request/getdeathcounts')
+                .then(response => response.json())
+                .then(data => drawChartDeaths(formatNumericData(data), document.getElementById('chartDeaths')));
 
-    fetch('/request/getprogresscounts')
-        .then(response => response.json())
-        .then(data => drawChartProgress(formatProgressData(data), document.getElementById('chartProgress')));
+            fetch('/request/getplaythroughcounts')
+                .then(response => response.json())
+                .then(data => drawChartPlaythrough(formatNumericData(data), document.getElementById('chartPlaythrough')));
 
-    fetch('/request/getoptionalcounts')
-        .then(response => response.json())
-        .then(data => drawChartOptional(formatOptionalData(data), document.getElementById('chartOptional')));
+            fetch('/request/getprogresscounts')
+                .then(response => response.json())
+                .then(data => drawChartProgress(formatProgressData(data), document.getElementById('chartProgress')));
 
-    fetch('/request/getsmornsteincounts')
-        .then(response => response.json())
-        .then(data => drawChartSmornstein(formatSmornsteinData(data), document.getElementById('chartSmornstein')));
+            fetch('/request/getoptionalcounts')
+                .then(response => response.json())
+                .then(data => drawChartOptional(formatOptionalData(data), document.getElementById('chartOptional')));
 
+            fetch('/request/getsmornsteincounts')
+                .then(response => response.json())
+                .then(data => drawChartSmornstein(formatSmornsteinData(data), document.getElementById('chartSmornstein')));
+        });
 
     function formatNumericData(json)
     {
