@@ -172,7 +172,7 @@ class DataManager
             int adpp;
             if(progress == 0) //treat as progress = .02 but don't want to mess up charts by explicitly setting progress as such
             {
-                adpp = deaths * 50;
+                adpp = deaths * 50; //TODO: by ignoring playthrough here, aren't we introducing a big error in calculation?
             }
             else
             {

@@ -95,8 +95,10 @@ function loadChartData()
     fetch('/request/getdeathandadppaverages')
         .then(response => response.json())
         .then(data => {
-            titleDeaths = "Average Total Deaths for All Players: " + data.deaths;
-            titleADPP = 'Average Deaths per Playthrough for All Players: ' + data.adpp;
+            averageDeaths = data.deaths;
+            averageADPP = data.adpp;
+            titleDeaths = "Average Total Deaths for All Players: " + averageDeaths;
+            titleADPP = 'Average Deaths per Playthrough for All Players: ' + averageADPP;
 
             fetch('/request/getadppcounts')
                 .then(response => response.json())
@@ -191,6 +193,21 @@ function loadChartData()
 
 function drawChartADPP(chartData, parentEl)
 {
+    if(typeof charData.deaths === 'number' && typeof charData.playthrough === 'number' && typeof charData.progress === 'number')
+    {
+        //TODO: should probably tweak the chart dimensions to incorporate a bigger title if player data is present
+        let adpp;
+        if(charData.progress === 0 && charData.playthrough === 0) //treat as progress = .02 but don't want to mess up charts by explicitly setting progress as such in the DB
+        {
+            adpp = charData.deaths * 50;
+        }
+        else
+        {
+            adpp = Math.round(charData.deaths/(charData.playthrough+charData.progress));
+        }
+        titleADPP = 'Your Average Deaths Per Playthrough: ' + adpp + '\nGlobal Average: ' + averageADPP;
+    }
+
     // Create and populate the data table.
     var data = new google.visualization.DataTable();
     data.addColumn('number', 'Deaths');
@@ -232,6 +249,11 @@ function drawChartADPP(chartData, parentEl)
 
 function drawChartDeaths(chartData, parentEl)
 {
+    if(typeof charData.deaths === 'number')
+    {
+        //TODO: should probably tweak the chart dimensions to incorporate a bigger title if player data is present
+        titleDeaths = 'Your Total Deaths: ' + charData.deaths + '\nGlobal Average: ' + averageDeaths;
+    }
     // Create and populate the data table.
     var data = new google.visualization.DataTable();
     data.addColumn('number', 'Deaths');

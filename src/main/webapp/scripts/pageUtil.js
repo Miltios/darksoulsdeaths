@@ -189,8 +189,8 @@ function submitCharData(form)
 {
     console.log('submitCharData'); //TODO:DEBUG
     showSubmitLoadingGif();
-    charData.playthrough = form.elements['playthrough'].value;
-    charData.progress = form.elements['progress'].value;
+    charData.playthrough = parseInt(form.elements['playthrough'].value);
+    charData.progress = parseInt(form.elements['progress'].value);
     charData.optionalShitholes = form.elements['optionalShitholes'].checked;
     charData.optionalDragonbros = form.elements['optionalDragonbros'].checked;
     charData.optionalAsylum = form.elements['optionalAsylum'].checked;
