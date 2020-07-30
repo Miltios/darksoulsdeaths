@@ -89,9 +89,38 @@ document.getElementById('span-progress').innerHTML = progress * 100 + '%';*/
 //loadChartData(); //invoked by google callback once charts API is loaded
                     //TODO:should we have a gate function to make sure google and charts.js are both loaded before calling loadChartData?
 
+let pendingCharts = [];
+let chartsCallback = null;
+function initChartGateway ()
+{
+    pendingCharts = ['adpp','deaths','playthrough', 'progress', 'optional', 'smornstein'];
+}
+function passChartGateway(chart)
+{
+    let index = pendingCharts.indexOf(chart);
+    if(index === -1)
+    {
+        console.error('Could not find chart "' + '" in pending list!');
+        return;
+    }
+    pendingCharts.splice(index,1);
+    if(pendingCharts.length === 0)
+    {
+        finishChartGateway();
+    }
+}
+function finishChartGateway()
+{
+    if(typeof chartsCallback === 'function')
+    {
+        chartsCallback();
+    }
+}
+
 function loadChartData()
 {
     //TODO: should probably have a gate function for all of this rather than ping-ponging it
+    initChartGateway();
     fetch('/request/getdeathandadppaverages')
         .then(response => response.json())
         .then(data => {
@@ -102,27 +131,45 @@ function loadChartData()
 
             fetch('/request/getadppcounts')
                 .then(response => response.json())
-                .then(data => drawChartADPP(formatNumericData(data), document.getElementById('chartADPP')));
+                .then(data => {
+                    drawChartADPP(formatNumericData(data), document.getElementById('chartADPP'));
+                    passChartGateway('adpp');
+                });
 
             fetch('/request/getdeathcounts')
                 .then(response => response.json())
-                .then(data => drawChartDeaths(formatNumericData(data), document.getElementById('chartDeaths')));
+                .then(data => {
+                    drawChartDeaths(formatNumericData(data), document.getElementById('chartDeaths'));
+                    passChartGateway('deaths');
+                });
 
             fetch('/request/getplaythroughcounts')
                 .then(response => response.json())
-                .then(data => drawChartPlaythrough(formatNumericData(data), document.getElementById('chartPlaythrough')));
+                .then(data => {
+                    drawChartPlaythrough(formatNumericData(data), document.getElementById('chartPlaythrough'));
+                    passChartGateway('playthrough');
+                });
 
             fetch('/request/getprogresscounts')
                 .then(response => response.json())
-                .then(data => drawChartProgress(formatProgressData(data), document.getElementById('chartProgress')));
+                .then(data => {
+                    drawChartProgress(formatProgressData(data), document.getElementById('chartProgress'));
+                    passChartGateway('progress');
+                });
 
             fetch('/request/getoptionalcounts')
                 .then(response => response.json())
-                .then(data => drawChartOptional(formatOptionalData(data), document.getElementById('chartOptional')));
+                .then(data => {
+                    drawChartOptional(formatOptionalData(data), document.getElementById('chartOptional'));
+                    passChartGateway('optional');
+                });
 
             fetch('/request/getsmornsteincounts')
                 .then(response => response.json())
-                .then(data => drawChartSmornstein(formatSmornsteinData(data), document.getElementById('chartSmornstein')));
+                .then(data => {
+                    drawChartSmornstein(formatSmornsteinData(data), document.getElementById('chartSmornstein'));
+                    passChartGateway('smornstein');
+                });
         });
 
     function formatNumericData(json)

@@ -210,7 +210,6 @@ function submitCharData(form)
         .then(response => response.json())
         .then(data =>
         {
-            console.log(data); //TODO
             renderStats(data, function()
             {
                 //TODO: callback function for when stats page is done
@@ -226,9 +225,6 @@ function submitCharData(form)
 }
 function renderStats(data, callback)
 {
-    //TODO
-    if(typeof callback === 'function')
-    {
-        callback();
-    }
+    chartsCallback = callback;
+    loadChartData();
 }
