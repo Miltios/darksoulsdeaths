@@ -217,11 +217,6 @@ function submitCharData(form)
                 navigate('stats');
             });
         });
-
-
-
-    //TODO:only navigate to stats page after server responds?
-    //TODO:render user data in stats page along side aggregate results
 }
 function renderStats(data, callback)
 {

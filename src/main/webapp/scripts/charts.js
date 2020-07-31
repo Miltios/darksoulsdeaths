@@ -12,8 +12,7 @@ var fname = 'Marcellus SC'; // Fancier font, same deal.
 var fcolor = '#EEEEEE';
 var chonk = 540;
 var tall = 221;
-var noMargin = {width:'490', height:'171'}; /*set chart width/height to (chonk - Y axis size) and (tall - X axis size) to remove margin/padding*/
-var extraVertical = {width:'490', height:'100'};
+var noMargin = {width:'490', height:'161'}; /*set chart width/height to (chonk - Y axis size) and (tall - X axis size) to remove margin/padding*/
 var accentColor = '#ebc38b';
 var statsBackground = '#5c5c5c';
 var baseColor = '#9a9a9a';
@@ -160,6 +159,28 @@ function loadChartData()
             fetch('/request/getoptionalcounts')
                 .then(response => response.json())
                 .then(data => {
+                    //HACK: make the axis labels more compact, because a Google Charts API bug isn't allowing the decluttering options to work
+                    for(let i=0; i<data.length; i++)
+                    {
+                        switch(data[i].optionalareasname)
+                        {
+                            case 'Lower Undead Burg/Depths':
+                                data[i].optionalareasname = 'Depths';
+                                break;
+                            case 'Great Hollow/Ash Lake':
+                                data[i].optionalareasname = 'Ash Lake';
+                                break;
+                            case 'Undead Asylum (2nd visit)':
+                                data[i].optionalareasname = 'Asylum (revisit)';
+                                break;
+                            case 'Painted World of Ariamis':
+                                data[i].optionalareasname = 'Painted World';
+                                break;
+                            case 'Additional Content (beat Manus)':
+                                data[i].optionalareasname = 'Manus';
+                                break;
+                        }
+                    }
                     drawChartOptional(formatOptionalData(data), document.getElementById('chartOptional'));
                     passChartGateway('optional');
                 });
@@ -388,8 +409,8 @@ function drawChartProgress(chartData, parentEl)
         title:"Global Completion Rate (within current playthrough):",
         titleTextStyle: {color: fcolor, fontSize: fsize, fontName: fname},
         curveType: "none",
-        width:chonk, height:tall,
-        chartArea:extraVertical,
+        width:chonk, height:tall+60,
+        chartArea:noMargin,
         vAxis: {
             title:"% of players completed",
             titleTextStyle: {color: textColor},
@@ -403,8 +424,7 @@ function drawChartProgress(chartData, parentEl)
             gridlines: {color:statsBackground},
             ticks: [{v:0, f:' '},{v:1, f:'Asylum Demon'},{v:2, f:'1st Bell'},{v:3, f:'2nd Bell'},{v:4, f:"Sen\'s Fortress"},{v:5, f:'Anor Londo'},{v:6, f:'1/4 Lord Souls'},{v:7, f:'2/4 Lord Souls'}, {v:8, f:'3/4 Lord Souls'}, {v:9, f:'4/4 Lord Souls'}],
             textStyle: {color: textColor},
-            slantedText: true,
-            slantedTextAngle: 45
+            slantedText: true
         },
         legend: {position: 'none'},
         //enableInteractivity:'false',
@@ -420,17 +440,16 @@ function drawChartOptional(chartData, parentEl)
 {
     // Create and populate the data table.
     var data = new google.visualization.DataTable();
-    data.addColumn('string', 'Deaths');
+    data.addColumn('string', 'Deaths'); //TODO:are these still valid?
     data.addColumn('number', 'Frequency');
     data.addRows(chartData);
 
     var options = {
         width:chonk, height:tall,
-        chartArea:extraVertical,
+        chartArea:noMargin,
         hAxis: {
             textStyle: {color: textColor},
-            slantedText: true,
-            slantedTextAngle: 45
+            slantedText: false
         },
         vAxis: {
             title: '% of players completed',
@@ -461,11 +480,10 @@ function drawChartSmornstein(chartData, parentEl)
 
     var options = {
         width:chonk, height:tall,
-        chartArea:extraVertical,
+        chartArea:noMargin,
         hAxis: {
             textStyle: {color: textColor},
-            slantedText: true,
-            slantedTextAngle: 45
+            slantedText: false
         },
         vAxis: {
             title: 'Votes',
