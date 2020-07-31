@@ -22,7 +22,7 @@ body
 .preload-images
 {
     position: absolute;
-    margin: -10000px;
+    margin-left: -10000px;
 }
 #wrapper
 {
