@@ -43,7 +43,7 @@
                         <input type="submit" id="submit" value="UPLOAD" onclick="submitFile(); return false;">
                     </form>
                 </div>
-                <img class="spinner" src="/images/spinner.gif" alt="Uploading..."/>
+                <img id="spinnerUpload" class="spinner" src="/images/spinner.gif" alt="Uploading..."/>
                 <div class="description-bottom">
                     The PC version's save files can be found in <b>Documents/NBGI/DarkSouls/[Your name]</b>. If you have an idea on how to make this work for consoles, <a href="/about.html#contact">let us know</a>.
                 </div>
@@ -133,8 +133,8 @@
                             <option value="19">Timon &amp; Pumba</option>
                         </select>
                     </div><br>
-                    <button onclick="submitCharData(this.form);return false;" class="uppercase button-general">ENOUGH DICKING AROUND. HOW'D I DO?</button>
-                    <img class="spinner" src="/images/spinner.gif" alt="Uploading..."/>
+                    <button id="buttonCharSubmit" onclick="submitCharData(this.form);return false;" class="uppercase button-general">ENOUGH DICKING AROUND. HOW'D I DO?</button>
+                    <img id="spinnerSubmit" class="spinner" src="/images/spinner.gif" alt="Uploading..."/>
                 </form>
             </div>
             <div id="contentFaq">

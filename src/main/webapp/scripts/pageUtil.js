@@ -81,32 +81,29 @@ function submitFile()
         .then(response => response.json())
         .then(data =>
         {
-            console.log(data); //TODO
             hideLoadingGif();
             renderResults(data);
         });
 }
 function showLoadingGif()
 {
-    document.getElementsByClassName('spinner')[0].style.display = 'initial';
+    document.getElementById('spinnerUpload').style.display = 'initial';
     document.getElementsByClassName('file-uploader')[0].style.display = 'none';
 }
 function hideLoadingGif()
 {
-    document.getElementsByClassName('spinner')[0].style.display = 'none';
+    document.getElementById('spinnerUpload').style.display = 'none';
     document.getElementsByClassName('file-uploader')[0].style.display = 'block';
 }
 function showSubmitLoadingGif()
 {
-    //TODO
-    /*document.getElementsByClassName('spinner')[0].style.display = 'initial';
-    document.getElementsByClassName('file-uploader')[0].style.display = 'none';*/
+    document.getElementById('spinnerSubmit').style.display = 'initial';
+    document.getElementById('buttonCharSubmit').style.display = 'none';
 }
 function hideSubmitLoadingGif()
 {
-    //TODO
-    /*document.getElementsByClassName('spinner')[0].style.display = 'none';
-    document.getElementsByClassName('file-uploader')[0].style.display = 'block';*/
+    document.getElementById('spinnerSubmit').style.display = 'none';
+    document.getElementById('buttonCharSubmit').style.display = '';
 }
 function renderResults(data)
 {
@@ -187,7 +184,6 @@ function renderSubmit(charname, deaths)
 }
 function submitCharData(form)
 {
-    console.log('submitCharData'); //TODO:DEBUG
     showSubmitLoadingGif();
     charData.playthrough = parseInt(form.elements['playthrough'].value);
     charData.progress = parseInt(form.elements['progress'].value);
