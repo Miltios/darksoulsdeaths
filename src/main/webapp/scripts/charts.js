@@ -67,12 +67,6 @@ function loadChartData()
             titleDeaths = "Average Total Deaths for All Players: " + averageDeaths;
             titleADPP = 'Average Deaths per Playthrough for All Players: ' + averageADPP;
 
-            //TODO
-            document.getElementById('span-ADPP').innerHTML = ADPP;
-            document.getElementById('span-deaths').innerHTML = deaths;
-            document.getElementById('span-averageDeaths').innerHTML = averageDeaths;
-            document.getElementById('span-averageADPP').innerHTML = averageADPP;
-
             fetch('/request/getadppcounts')
                 .then(response => response.json())
                 .then(data => {
@@ -219,6 +213,8 @@ function drawChartADPP(chartData, parentEl)
             adpp = Math.round(charData.deaths/(charData.playthrough+charData.progress));
         }
         titleADPP = '';
+        document.getElementById('span-ADPP').innerHTML = adpp;
+        document.getElementById('span-averageADPP').innerHTML = averageADPP;
     }
 
     // Create and populate the data table.
@@ -265,6 +261,8 @@ function drawChartDeaths(chartData, parentEl)
     if(typeof charData.deaths === 'number')
     {
         //TODO: should probably tweak the chart dimensions to incorporate a bigger title if player data is present
+        document.getElementById('span-deaths').innerHTML = charData.deaths;
+        document.getElementById('span-averageDeaths').innerHTML = averageDeaths;
         titleDeaths = '';
     }
     // Create and populate the data table.
