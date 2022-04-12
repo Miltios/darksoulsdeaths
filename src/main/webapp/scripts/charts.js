@@ -5,85 +5,24 @@ var deaths = charData.deaths;
 var ADPP = null;
 var playthrough = null;
 var progress = null;*/
-var averageDeaths = 'unknown';
-var averageADPP = 'unknown';
-var fsize = '16'; // Larger font size if the player-specific titles don't show up.
-var fname = 'Marcellus SC'; // Fancier font, same deal.
-var fcolor = '#EEEEEE';
-var chonk = 540;
-var tall = 221;
-var noMargin = {width:'490', height:'161'}; /*set chart width/height to (chonk - Y axis size) and (tall - X axis size) to remove margin/padding*/
-var accentColor = '#ebc38b';
-var statsBackground = '#5c5c5c';
-var baseColor = '#9a9a9a';
-var textColor = '#e4e4e4';
+let averageDeaths = 'unknown';
+let averageADPP = 'unknown';
+const fsize = '16'; // Larger font size if the player-specific titles don't show up.
+const fname = 'Marcellus SC'; // Fancier font, same deal.
+const fcolor = '#EEEEEE';
+const chonk = 540;
+const tall = 221;
+const noMargin = {width:'490', height:'161'}; /*set chart width/height to (chonk - Y axis size) and (tall - X axis size) to remove margin/padding*/
+const accentColor = '#ebc38b';
+const statsBackground = '#5c5c5c';
+const baseColor = '#9a9a9a';
+const textColor = '#e4e4e4';
 
 //TODO:specify default chart dimensions, colors, etc.
 
 //TODO:switches for certain elements to toggle or reformat based on player data. Will need to be tweaked for new page format/IDs once uncommented.
-var titleADPP = 'Average Deaths per Playthrough for All Players: ' + averageADPP; //TODO
-var titleDeaths = "Average Total Deaths for All Players: " + averageDeaths; //TODO
-/*if(character !== "") // Show how the submitted character compares with global stats.
-                                // Users can still browse global stats without submitting a character,
-                                // in which case player-specific elements won't display.
-{
-    document.getElementById('span-char').innerHTML = character;
-    document.getElementById('table-char').style.display = "table";
-    yourStats = document.getElementsByClassName("your-stats");
-    for (var i = 0; i < yourStats.length; i++)
-    {
-        yourStats[i].style.display = "block";
-    }
-    fname = 'Garamond';
-    fsize = '16';
-    fcolor = '#ebc38b';
-}
-else // Tweak title wording and change the remaining h2 elements to match the google chart headers
-{
-allstats = document.getElementsByClassName('all-stats');
-for(var i=allstats.length; i>0; i--)
-{
-allstats[i-1].className = 'nochar-stats';
-}
-titleADPP = titleADPP + averageADPP;
-titleDeaths = "Average Total Deaths for All Players: " + averageDeaths;
-}
-document.getElementById('span-ADPP').innerHTML = ADPP;
-document.getElementById('span-deaths').innerHTML = deaths;
-document.getElementById('span-averageDeaths').innerHTML = averageDeaths;
-document.getElementById('span-averageADPP').innerHTML = averageADPP;
-switch(playthrough)
-{
-case 0:
-        document.getElementById('span-playthrough').innerHTML = "New Game";
-        break;
-case 1:
-        document.getElementById('span-playthrough').innerHTML = "New Game +";
-        break;
-case 2:
-        document.getElementById('span-playthrough').innerHTML = "New Game +2";
-        break;
-case 3:
-        document.getElementById('span-playthrough').innerHTML = "New Game +3";
-        break;
-case 4:
-        document.getElementById('span-playthrough').innerHTML = "New Game +4";
-        break;
-case 5:
-        document.getElementById('span-playthrough').innerHTML = "New Game +5";
-        break;
-case 6:
-        document.getElementById('span-playthrough').innerHTML = "New Game +6";
-        break;
-case 7:
-        document.getElementById('span-playthrough').innerHTML = "New Game +7";
-        break;
-}
-if(progress > 1)
-{
-progress = 1;
-}
-document.getElementById('span-progress').innerHTML = progress * 100 + '%';*/
+let titleADPP = 'Average Deaths per Playthrough for All Players: ';
+let titleDeaths = 'Average Total Deaths for All Players: ';
 
 //loadChartData(); //invoked by google callback once charts API is loaded
                     //TODO:should we have a gate function to make sure google and charts.js are both loaded before calling loadChartData?
@@ -127,6 +66,12 @@ function loadChartData()
             averageADPP = data.adpp;
             titleDeaths = "Average Total Deaths for All Players: " + averageDeaths;
             titleADPP = 'Average Deaths per Playthrough for All Players: ' + averageADPP;
+
+            //TODO
+            document.getElementById('span-ADPP').innerHTML = ADPP;
+            document.getElementById('span-deaths').innerHTML = deaths;
+            document.getElementById('span-averageDeaths').innerHTML = averageDeaths;
+            document.getElementById('span-averageADPP').innerHTML = averageADPP;
 
             fetch('/request/getadppcounts')
                 .then(response => response.json())
@@ -273,7 +218,7 @@ function drawChartADPP(chartData, parentEl)
         {
             adpp = Math.round(charData.deaths/(charData.playthrough+charData.progress));
         }
-        titleADPP = 'Your Average Deaths Per Playthrough: ' + adpp + '\nGlobal Average: ' + averageADPP;
+        titleADPP = '';
     }
 
     // Create and populate the data table.
@@ -320,7 +265,7 @@ function drawChartDeaths(chartData, parentEl)
     if(typeof charData.deaths === 'number')
     {
         //TODO: should probably tweak the chart dimensions to incorporate a bigger title if player data is present
-        titleDeaths = 'Your Total Deaths: ' + charData.deaths + '\nGlobal Average: ' + averageDeaths;
+        titleDeaths = '';
     }
     // Create and populate the data table.
     var data = new google.visualization.DataTable();

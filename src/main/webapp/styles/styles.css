@@ -327,6 +327,10 @@ body:not(.has-results) #contentResults
 {
     display: none;
 }
+body:not(.has-results) .your-stats
+{
+    display: none;
+}
 #resultsTable hr
 {
     margin: 10px auto;
