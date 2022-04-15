@@ -1,10 +1,6 @@
 //TODO: dummy values
 //TODO: let vs var
-/*var character = charData.name;
-var deaths = charData.deaths;
-var ADPP = null;
-var playthrough = null;
-var progress = null;*/
+//TODO: display char name on stats (and possibly submission) page?
 let averageDeaths = 'unknown';
 let averageADPP = 'unknown';
 const fsize = '16'; // Larger font size if the player-specific titles don't show up.
@@ -24,8 +20,6 @@ const textColor = '#e4e4e4';
 let titleADPP = 'Average Deaths per Playthrough for All Players: ';
 let titleDeaths = 'Average Total Deaths for All Players: ';
 
-//loadChartData(); //invoked by google callback once charts API is loaded
-                    //TODO:should we have a gate function to make sure google and charts.js are both loaded before calling loadChartData?
 
 let pendingCharts = [];
 let chartsCallback = null;
@@ -55,6 +49,7 @@ function finishChartGateway()
     }
 }
 
+//invoked by google callback once charts API is loaded
 function loadChartData()
 {
     //TODO: should probably have a gate function for all of this rather than ping-ponging it
@@ -185,24 +180,10 @@ function loadChartData()
     }
 }
 
-//TODO: vestigial?
-/*function onChartDataLoaded(res)
-{
-    drawChartADPP(dataADPP, elADPP);
-    drawChartDeaths(dataDeaths, elDeaths);
-    drawChartPlaythrough(dataPlaythrough, elPlaythrough);
-    drawChartProgress(dataProgress, elProgress);
-    drawChartOptional(dataOptional, elOptional);
-    drawChartSmornstein(dataSmornstein, elSmornstein);
-}*/
-
-
-
 function drawChartADPP(chartData, parentEl)
 {
     if(typeof charData.deaths === 'number' && typeof charData.playthrough === 'number' && typeof charData.progress === 'number')
     {
-        //TODO: should probably tweak the chart dimensions to incorporate a bigger title if player data is present
         let adpp;
         if(charData.progress === 0 && charData.playthrough === 0) //treat as progress = .02 but don't want to mess up charts by explicitly setting progress as such in the DB
         {
@@ -260,7 +241,6 @@ function drawChartDeaths(chartData, parentEl)
 {
     if(typeof charData.deaths === 'number')
     {
-        //TODO: should probably tweak the chart dimensions to incorporate a bigger title if player data is present
         document.getElementById('span-deaths').innerHTML = charData.deaths;
         document.getElementById('span-averageDeaths').innerHTML = averageDeaths;
         titleDeaths = '';
@@ -383,8 +363,6 @@ function drawChartOptional(chartData, parentEl)
 {
     // Create and populate the data table.
     var data = new google.visualization.DataTable();
-    data.addColumn('string', 'Deaths'); //TODO:are these still valid?
-    data.addColumn('number', 'Frequency');
     data.addRows(chartData);
 
     var options = {
@@ -417,8 +395,6 @@ function drawChartSmornstein(chartData, parentEl)
 {
     // Create and populate the data table.
     var data = new google.visualization.DataTable();
-    data.addColumn('string', 'Deaths');
-    data.addColumn('number', 'Frequency');
     data.addRows(chartData);
 
     var options = {
