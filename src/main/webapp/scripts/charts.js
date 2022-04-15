@@ -1,5 +1,3 @@
-//TODO: dummy values
-//TODO: let vs var
 //TODO: display char name on stats (and possibly submission) page?
 let averageDeaths = 'unknown';
 let averageADPP = 'unknown';
@@ -14,9 +12,6 @@ const statsBackground = '#5c5c5c';
 const baseColor = '#9a9a9a';
 const textColor = '#e4e4e4';
 
-//TODO:specify default chart dimensions, colors, etc.
-
-//TODO:switches for certain elements to toggle or reformat based on player data. Will need to be tweaked for new page format/IDs once uncommented.
 let titleADPP = 'Average Deaths per Playthrough for All Players: ';
 let titleDeaths = 'Average Total Deaths for All Players: ';
 
@@ -199,12 +194,12 @@ function drawChartADPP(chartData, parentEl)
     }
 
     // Create and populate the data table.
-    var data = new google.visualization.DataTable();
+    let data = new google.visualization.DataTable();
     data.addColumn('number', 'Deaths');
     data.addColumn('number', 'Players');
     data.addRows(chartData);
 
-    var options = {
+    let options = {
         title: titleADPP,
         titleTextStyle: {color: fcolor, fontSize: fsize, fontName: fname},
         width:chonk, height:tall,
@@ -246,12 +241,12 @@ function drawChartDeaths(chartData, parentEl)
         titleDeaths = '';
     }
     // Create and populate the data table.
-    var data = new google.visualization.DataTable();
+    let data = new google.visualization.DataTable();
     data.addColumn('number', 'Deaths');
     data.addColumn('number', 'Players');
     data.addRows(chartData);
 
-    var options = {
+    let options = {
         title: titleDeaths,
         titleTextStyle: {color: fcolor, fontSize: fsize, fontName: fname},
         width:chonk, height:tall,
@@ -285,12 +280,12 @@ function drawChartDeaths(chartData, parentEl)
 function drawChartPlaythrough(chartData, parentEl)
 {
     // Create and populate the data table.
-    var data = new google.visualization.DataTable();
+    let data = new google.visualization.DataTable();
     data.addColumn('number', 'Playthrough');
     data.addColumn('number', 'Survivors');
     data.addRows(chartData);
 
-    var options = {
+    let options = {
         title:"Global Completion Rate:",
         titleTextStyle: {color: fcolor, fontSize: fsize, fontName: fname},
         curveType: "function",
@@ -323,12 +318,12 @@ function drawChartPlaythrough(chartData, parentEl)
 function drawChartProgress(chartData, parentEl)
 {
     // Create and populate the data table.
-    var data = new google.visualization.DataTable();
+    let data = new google.visualization.DataTable();
     data.addColumn('number', 'Playthrough');
     data.addColumn('number', 'Survivors');
     data.addRows(chartData);
 
-    var options = {
+    let options = {
         title:"Global Completion Rate (within current playthrough):",
         titleTextStyle: {color: fcolor, fontSize: fsize, fontName: fname},
         curveType: "none",
@@ -362,10 +357,10 @@ function drawChartProgress(chartData, parentEl)
 function drawChartOptional(chartData, parentEl)
 {
     // Create and populate the data table.
-    var data = new google.visualization.DataTable();
+    let data = new google.visualization.DataTable();
     data.addRows(chartData);
 
-    var options = {
+    let options = {
         width:chonk, height:tall,
         chartArea:noMargin,
         hAxis: {
@@ -394,10 +389,10 @@ function drawChartOptional(chartData, parentEl)
 function drawChartSmornstein(chartData, parentEl)
 {
     // Create and populate the data table.
-    var data = new google.visualization.DataTable();
+    let data = new google.visualization.DataTable();
     data.addRows(chartData);
 
-    var options = {
+    let options = {
         width:chonk, height:tall,
         chartArea:noMargin,
         hAxis: {
