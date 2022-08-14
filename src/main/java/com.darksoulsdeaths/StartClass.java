@@ -43,6 +43,12 @@ public class StartClass implements ServletContextListener //TODO:what do we actu
                 properties.setProperty("userName", jdbUri.getUserInfo().split(":")[0]);
                 properties.setProperty("userPass", jdbUri.getUserInfo().split(":")[1]);
                 properties.setProperty("connectionUrl", "jdbc:mysql://" + jdbUri.getHost() + ":" + jdbUri.getPort() + jdbUri.getPath());
+
+                //TODO: DEBUG
+                System.out.println("DB URI: " + jdbUri);
+                System.out.println("DB U: " + properties.getProperty("userName"));
+                System.out.println("DB P: " + properties.getProperty("userPass"));
+                System.out.println("DB CURL: " + properties.getProperty("connectionUrl"));
             }
             catch(URISyntaxException u)
             {
